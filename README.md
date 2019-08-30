@@ -1,2 +1,2 @@
-# Teamwork
-Creating the Teamwork project
+# Teamwork Project
+Teamwork project an Andela Developer Challenge
