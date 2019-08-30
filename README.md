@@ -2,4 +2,4 @@
 Teamwork project an Andela Developer Challenge
 
 
-## GH PAGES LINK - > https://https://nigorjeanluc.github.io/Teamwork/
+## GH PAGES LINK - > https://nigorjeanluc.github.io/Teamwork/
