@@ -294,7 +294,7 @@ header .header-cases {
 .index-banner h1 {
     font-family: Cormorant Garamond;
     font-size: 28px;
-    font-weight: 100;
+    font-weight: 600;
     font-style: italic;
     line-height: 40px;
     color: #fff;
@@ -305,8 +305,48 @@ header .header-cases {
 .index-links div {
     margin: 16px 16px 0;
     width: calc(100% - 32px);
-    height: 100px;
-    background-color: #f2f2f2;
+    height: auto;
+    background-color: none;
+}
+
+.index-links textarea {
+    margin: 0;
+    padding: 10px;
+    outline: 0;
+    border: 3px solid rgb(36, 126, 81);
+    width: calc(100% - 26px);
+    resize: vertical;
+    border-radius: 20px;
+    font-family: Catamaran;
+    height: 60px;
+    font-size: 16px;
+    line-height: 28px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+}
+
+.index-links button {
+    background-color: rgb(36, 126, 81);
+    /* Green */
+    border: 3px solid rgb(36, 126, 81);
+    color: white;
+    width: calc(100% - 0px);
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0;
+    border-radius: 20px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.index-links button:hover {
+    background-color: white;
+    color: black;
+    border: 3px solid rgb(36, 126, 81);
 }
 
 
@@ -327,6 +367,7 @@ header .header-cases {
 @media only screen and (min-width: 1000px) {
     .wrapper {
         width: 1000px;
+        box-align: center;
         margin: 0 auto;
     }
     .index-banner {
@@ -342,9 +383,12 @@ header .header-cases {
     }
     .index-links div {
         margin: 20px 10px 0;
-        height: 230px;
-        background-color: #f2f2f2;
+        height: auto;
+        background-color: none;
         float: left;
+    }
+    .index-boxlink-large {
+        width: calc(100% - 100px) !important;
     }
     .index-boxlink-square {
         width: calc(25% - 60px) !important;
@@ -397,7 +441,7 @@ input.username {
     margin: 0;
     text-align: center;
     outline: 0;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     width: 120%;
     left: -10%;
     position: relative;
@@ -414,7 +458,7 @@ input.password {
     margin: 20px 0;
     text-align: center;
     outline: 0;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     width: 120%;
     left: -10%;
     position: relative;
@@ -437,7 +481,7 @@ input.password {
     color: #040F3D;
     text-transform: uppercase;
     line-height: 28px;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     border-radius: 20px;
     float: right;
     margin-right: -25px;
@@ -507,7 +551,7 @@ input.register-fullname {
     margin: 0;
     text-align: center;
     outline: 0;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     width: 120%;
     left: -10%;
     position: relative;
@@ -524,7 +568,7 @@ input.register-email {
     margin-top: 20px;
     text-align: center;
     outline: 0;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     width: 120%;
     left: -10%;
     position: relative;
@@ -541,7 +585,7 @@ input.register-position {
     margin-top: 20px;
     text-align: center;
     outline: 0;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     width: 120%;
     left: -10%;
     position: relative;
@@ -558,7 +602,7 @@ input.register-username {
     margin-top: 20px;
     text-align: center;
     outline: 0;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     width: 120%;
     left: -10%;
     position: relative;
@@ -575,7 +619,7 @@ input.register-password {
     margin-top: 20px;
     text-align: center;
     outline: 0;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     width: 120%;
     left: -10%;
     position: relative;
@@ -592,7 +636,7 @@ input.register-confirm-password {
     margin: 20px 0;
     text-align: center;
     outline: 0;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     width: 120%;
     left: -10%;
     position: relative;
@@ -615,7 +659,7 @@ input.register-confirm-password {
     color: #040F3D;
     text-transform: uppercase;
     line-height: 28px;
-    border: 3px solid #AAAAAA;
+    border: 3px solid rgb(36, 126, 81);
     border-radius: 20px;
     float: right;
     margin-right: -25px;
