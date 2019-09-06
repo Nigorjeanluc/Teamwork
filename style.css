@@ -305,8 +305,16 @@ header .header-cases {
 .index-links div {
     margin: 16px 16px 0;
     width: calc(100% - 32px);
+    padding: 4px;
     height: auto;
     background-color: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.index-links div:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .index-links textarea {
@@ -358,16 +366,136 @@ header .header-cases {
     font-family: Catamaran;
     font-size: 28px;
     font-weight: 600;
-    line-height: 100px;
+    line-height: 50px;
     color: #040F3D;
     text-align: center;
     text-transform: uppercase;
 }
 
+.index-links-article .index-boxlink-large {
+    margin: 16px 16px 0;
+    width: calc(100% - 32px);
+    padding: 4px;
+    height: auto;
+    background-color: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.index-links-article .index-boxlink-large:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.index-links-article .index-boxlink-large h3 {
+    font-family: Catamaran;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 100px;
+    color: #040F3D;
+    /* text-align: center; */
+    text-transform: uppercase;
+}
+
+.title-box {
+    padding: 10px;
+}
+
+.title-box label {
+    color: #444;
+    margin: 0;
+    display: inline-block;
+}
+
+.article-list {
+    padding: 10px;
+    list-style: none;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.article-list li {
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.article-list li>div {
+    display: table-cell;
+}
+
+.article-text p {
+    margin: 0px;
+    font-family: Catamaran;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.article-image {
+    width: 80px;
+    margin-right: 5px;
+    margin-top: -20px;
+    height: 100%;
+    float: left;
+}
+
+.article-image img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.article-box {
+    padding: 20px;
+    border-top: 1px solid rgba(138, 138, 138, 0.918);
+    font-family: Catamaran;
+    font-size: 20px;
+    height: auto;
+}
+
+.article-box .comment-form:first-child,
+.article-comment-box .comment-form:first-child {
+    width: 80%;
+}
+
+.article-box .comment-form:nth-child(2),
+.article-comment-box .comment-form:nth-child(2) {
+    width: 18%;
+}
+
+.article-comment-box .comment-form * {
+    width: 100%;
+}
+
+.article-content {
+    margin-top: 10px 0;
+}
+
+.sub-text {
+    color: rgb(97, 96, 96);
+    font-family: Cormorant Garamond;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.sub-role {
+    color: rgb(61, 61, 61);
+    font-family: Cormorant Garamond;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.article-comment-box {
+    border-top: 1px solid rgba(138, 138, 138, 0.918);
+    display: block;
+    padding: 10px;
+}
+
+.form-inline {
+    display: inline;
+}
+
 @media only screen and (min-width: 1000px) {
     .wrapper {
         width: 1000px;
-        box-align: center;
         margin: 0 auto;
     }
     .index-banner {
@@ -379,25 +507,40 @@ header .header-cases {
         margin: 0 auto;
     }
     .index-links {
-        overflow: hidden;
+        overflow: inherit;
+        height: auto;
     }
     .index-links div {
         margin: 20px 10px 0;
-        height: auto;
         background-color: none;
-        float: left;
+    }
+    .index-links-article {
+        overflow: inherit;
+        height: auto;
+    }
+    .index-links-article div {
+        margin: 20px 10px 0;
+        background-color: none;
+    }
+    .index-links div h3 {
+        line-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+    .index-links-article div h3 {
+        line-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 5px;
     }
     .index-boxlink-large {
         width: calc(100% - 100px) !important;
+        height: auto;
     }
     .index-boxlink-square {
         width: calc(25% - 60px) !important;
     }
     .index-boxlink-rectangle {
         width: calc(50% - 20px) !important;
-    }
-    .index-links div h3 {
-        line-height: 30px;
     }
 }
 
