@@ -459,11 +459,44 @@ header .header-cases {
 }
 
 .article-content {
-    margin-top: 10px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .article-content-button {
     line-height: 40px;
+}
+
+.article-content-button .badge1 {
+    position: relative;
+    margin-right: 10px;
+    padding: 2px 8px;
+    font-family: Catamaran;
+    font-weight: 500;
+    color: rgb(19, 18, 18);
+}
+
+.article-content-button .badge1:hover {
+    background-color: rgba(21, 122, 46, 0.493);
+    border-radius: 20px;
+}
+
+.article-content-button .badge1[data-badge]:after {
+    content: attr(data-badge);
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-family: Catamaran;
+    font-weight: 500;
+    font-size: .7em;
+    background: green;
+    color: white;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 50%;
+    box-shadow: 0 0 1px #333;
 }
 
 .article-content-button button {
@@ -506,6 +539,56 @@ header .header-cases {
     border: 2px solid #f44336;
     border-radius: 20px;
 }
+
+
+/* COMMENTS */
+
+.article-content-comment {
+    background-color: rgba(95, 95, 95, 0.513);
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.article-content-comment .article-list {
+    padding: 10px;
+    margin-bottom: 20px;
+    list-style: none;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.article-content-comment .article-list li {
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.article-content-comment .article-list li>div {
+    display: table-cell;
+}
+
+.article-content-comment .article-text p {
+    margin: 0px;
+    font-family: Catamaran;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.article-content-comment .article-image {
+    width: 50px;
+    margin-right: 5px;
+    margin-top: -20px;
+    height: 100%;
+    float: left;
+}
+
+.article-content-comment .article-image img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+
+/* ICI */
 
 .sub-text {
     color: rgb(29, 92, 60);
@@ -1328,4 +1411,9 @@ footer ul li a {
     .modal2-body textarea {
         width: 95%;
     }
+}
+
+.article-link {
+    text-decoration: none;
+    color: inherit;
 }
