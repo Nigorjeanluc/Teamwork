@@ -293,7 +293,7 @@ header .header-cases {
 
 .index-banner h1 {
     font-family: Cormorant Garamond;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
     font-style: italic;
     line-height: 40px;
@@ -318,7 +318,7 @@ header .header-cases {
 }
 
 .index-links textarea {
-    margin: 0;
+    margin: 10px 0;
     padding: 10px;
     outline: 0;
     border: 3px solid rgb(36, 126, 81);
@@ -364,7 +364,19 @@ header .header-cases {
 
 .index-links div h3 {
     font-family: Catamaran;
-    font-size: 28px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 50px;
+    background-color: rgba(36, 126, 81, 0.445);
+    border-radius: 20px;
+    color: #040F3D;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.index-title div h3 {
+    font-family: Catamaran;
+    font-size: 22px;
     font-weight: 600;
     line-height: 50px;
     color: #040F3D;
@@ -399,12 +411,6 @@ header .header-cases {
 
 .title-box {
     padding: 10px;
-}
-
-.title-box label {
-    color: #444;
-    margin: 0;
-    display: inline-block;
 }
 
 .article-list {
@@ -444,42 +450,74 @@ header .header-cases {
 }
 
 .article-box {
-    padding: 20px;
+    padding: 10px;
     border-top: 1px solid rgba(138, 138, 138, 0.918);
     font-family: Catamaran;
     font-size: 20px;
     height: auto;
-}
-
-.article-box .comment-form:first-child,
-.article-comment-box .comment-form:first-child {
-    width: 80%;
-}
-
-.article-box .comment-form:nth-child(2),
-.article-comment-box .comment-form:nth-child(2) {
-    width: 18%;
-}
-
-.article-comment-box .comment-form * {
-    width: 100%;
+    overflow: auto;
 }
 
 .article-content {
     margin-top: 10px 0;
 }
 
+.article-content-button {
+    line-height: 40px;
+}
+
+.article-content-button button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 2px 5px 2px 5px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Catamaran;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.article-content-button .edit {
+    color: #008CBA;
+}
+
+.article-content-button .edit:hover {
+    color: #008CBA;
+    font-weight: 700;
+    border: 2px solid #008CBA;
+    border-radius: 20px;
+}
+
+.article-content-button .delete {
+    color: #f44336;
+}
+
+.article-content-button .delete:hover {
+    color: #f44336;
+    font-weight: 700;
+    border: 2px solid #f44336;
+    border-radius: 20px;
+}
+
 .sub-text {
-    color: rgb(97, 96, 96);
-    font-family: Cormorant Garamond;
-    font-size: 15px;
+    color: rgb(29, 92, 60);
+    font-family: Catamaran;
+    font-size: 13px;
     font-weight: bold;
 }
 
 .sub-role {
-    color: rgb(61, 61, 61);
-    font-family: Cormorant Garamond;
-    font-size: 15px;
+    color: rgb(29, 92, 60);
+    font-family: Catamaran;
+    font-size: 13px;
     font-weight: bold;
 }
 
@@ -487,10 +525,51 @@ header .header-cases {
     border-top: 1px solid rgba(138, 138, 138, 0.918);
     display: block;
     padding: 10px;
+    height: auto;
+    overflow: auto;
 }
 
 .form-inline {
-    display: inline;
+    display: inline !important;
+}
+
+.form-inline input {
+    vertical-align: middle;
+    width: calc(100% - 35%);
+    float: left;
+    padding: 10px;
+    background-color: #fff;
+    border: 3px solid rgb(36, 126, 81);
+    border-radius: 20px;
+    font-family: Catamaran;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+}
+
+.form-inline button {
+    vertical-align: middle;
+    padding: 7px;
+    font-family: Catamaran;
+    color: white;
+    background-color: rgb(36, 126, 81);
+    /* Green */
+    border: 3px solid rgb(36, 126, 81);
+    width: calc(100% - 75%);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    float: right;
+}
+
+.form-inline button:hover {
+    background-color: white;
+    color: black;
+    border: 3px solid rgb(36, 126, 81);
 }
 
 @media only screen and (min-width: 1000px) {
@@ -519,7 +598,7 @@ header .header-cases {
         height: auto;
     }
     .index-links-article div {
-        margin: 20px 10px 0;
+        margin: 0px 10px 0;
         background-color: none;
     }
     .index-links div h3 {
@@ -541,6 +620,18 @@ header .header-cases {
     }
     .index-boxlink-rectangle {
         width: calc(50% - 20px) !important;
+    }
+    .article-list {
+        padding-top: 0px;
+    }
+    .article-text p {
+        margin: 10px;
+    }
+    .form-inline input {
+        width: calc(100% - 30%);
+    }
+    .form-inline button {
+        width: calc(100% - 75%);
     }
 }
 
@@ -915,5 +1006,326 @@ footer ul li a {
         color: #040F3D;
         line-height: 40px;
         text-transform: uppercase;
+    }
+}
+
+
+/* THE MODEL ONE*/
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content One*/
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    height: auto;
+    border-radius: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+/* The Close Button */
+
+.close {
+    margin: 0px;
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 16px 16px;
+    background-color: #f44336;
+    border-radius: 20px 20px 0px 0px;
+    font-family: Catamaran;
+    font-size: 16px;
+    color: white;
+    line-height: 16px;
+}
+
+.modal-body {
+    padding: 16px 16px;
+    font-family: Catamaran;
+    font-size: 22px;
+    height: auto;
+    overflow: auto;
+}
+
+.modal-footer {
+    padding: 10px 16px;
+    font-family: Catamaran;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 0px 0px 20px 20px;
+    color: white;
+    overflow: auto;
+}
+
+.modal-footer button {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    padding: 2px 10px 2px 10px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Catamaran;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 4px 2px;
+    float: right;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.modal-footer .cancel {
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.modal-footer .delete {
+    border: 2px solid #f44336;
+    color: #f44336;
+}
+
+
+/* THE MODEL TWO*/
+
+
+/* The Modal (background) */
+
+.modal2 {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content One*/
+
+.modal2-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    height: auto;
+    border-radius: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+/* The Close Button */
+
+.editClose {
+    margin: 0px;
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.editClose:hover,
+.editClose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal2-header {
+    padding: 16px 16px;
+    background-color: #008CBA;
+    border-radius: 20px 20px 0px 0px;
+    font-family: Catamaran;
+    font-size: 16px;
+    color: white;
+    line-height: 16px;
+}
+
+.modal2-body {
+    padding: 0;
+    font-family: Catamaran;
+    font-size: 22px;
+    display: block;
+    align-content: center;
+    height: auto;
+    overflow: auto;
+}
+
+.modal2-body textarea {
+    margin: 10px 10px;
+    padding: 10px;
+    outline: 0;
+    border: 3px solid rgb(36, 126, 81);
+    width: 85%;
+    resize: vertical;
+    border-radius: 20px;
+    font-family: Catamaran;
+    height: 60px;
+    font-size: 16px;
+    line-height: 28px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+}
+
+.modal2-footer {
+    padding: 10px 16px;
+    font-family: Catamaran;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 0px 0px 20px 20px;
+    color: white;
+    overflow: auto;
+}
+
+.modal2-footer button {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    padding: 2px 10px 2px 10px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Catamaran;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 4px 2px;
+    float: right;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.modal2-footer .editCancel {
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.modal2-footer .save {
+    border: 2px solid #008CBA;
+    color: #008CBA;
+}
+
+@media only screen and (min-width: 1000px) {
+    .modal2-body textarea {
+        width: 95%;
     }
 }
