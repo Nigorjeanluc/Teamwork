@@ -1,23 +1,24 @@
 /* MODAL ONE*/
 
 // Get the modal
-var modal = document.getElementById("myModal");
+const modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementsByClassName("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-var cancel = document.getElementsByClassName("cancel")[0];
+const btn = document.getElementsByClassName("myBtn");
 
 // When the user clicks the button, open the modal
-var i;
+let i;
 for (i = 0; i < btn.length; i++) {
     btn[i].onclick = () => {
         modal.style.display = "block";
     }
 }
 
+
+
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+const cancel = document.getElementsByClassName("cancel")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = () => {
     modal.style.display = "none";
@@ -37,19 +38,19 @@ window.onclick = (event) => {
 /* MODAL TWO*/
 
 // Get the modal
-var modal2 = document.getElementById("myModal2");
+const modal2 = document.getElementById("myModal2");
 
 // Get the button that opens the modal
-var btn2 = document.getElementsByClassName("editBtn");
+const btn2 = document.getElementsByClassName("editBtn");
 
 // Get the <span> element that closes the modal
-var span2 = document.getElementsByClassName("editClose")[0];
-var cancel2 = document.getElementsByClassName("editCancel")[0];
+const span2 = document.getElementsByClassName("editClose")[0];
+const cancel2 = document.getElementsByClassName("editCancel")[0];
 
 // When the user clicks the button, open the modal
-var i;
-for (i = 0; i < btn2.length; i++) {
-    btn2[i].onclick = () => {
+let ii;
+for (ii = 0; ii < btn2.length; ii++) {
+    btn2[ii].onclick = () => {
         modal2.style.display = "block";
     }
 }
