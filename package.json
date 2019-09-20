@@ -1,0 +1,32 @@
+{
+    "name": "teamwork",
+    "version": "1.0.0",
+    "description": "TeamWork project for workmate collaboration",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha",
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nigorjeanluc/Teamwork.git"
+    },
+    "author": "Igor Jean-Luc Ndiramiye",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Nigorjeanluc/Teamwork/issues"
+    },
+    "homepage": "https://github.com/Nigorjeanluc/Teamwork#readme",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.6.0",
+        "@babel/core": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
+        "eslint": "^6.4.0",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "mocha": "^6.2.0"
+    }
+}
