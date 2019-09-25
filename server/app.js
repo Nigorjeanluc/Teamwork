@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
 import articleRoutes from './routes/articleRoutes';
+import userRoutes from './routes/userRoutes';
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(userRoutes);
 app.use(articleRoutes);
 
 app.get('/', (req, res) => {
