@@ -24,8 +24,8 @@ const userController = {
                 const alreadyUser = users.find((user) => user.email === req.body.email);
 
                 if (alreadyUser) {
-                    return res.status(200).json({
-                        status: 200,
+                    return res.status(422).json({
+                        status: 422,
                         message: 'You already have an account',
                     });
                 }
