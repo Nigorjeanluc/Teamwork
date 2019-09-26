@@ -373,7 +373,7 @@ main {
 .index-links button {
     background-color: #558C03;
     /* Green */
-    border: 3px solid #558C03;
+    border: 0px solid #558C03;
     color: white;
     width: calc(100% - 0px);
     padding: 16px 32px;
@@ -392,7 +392,6 @@ main {
 .index-links button:hover {
     background-color: #DDF291;
     color: black;
-    border: 3px solid #558C03;
 }
 
 
@@ -501,6 +500,7 @@ main {
 .article-content {
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 15px;
     line-height: 25px;
 }
 
@@ -677,12 +677,12 @@ main {
     color: white;
     background-color: #558C03;
     /* Green */
-    border: 3px solid #558C03;
+    border: 0px solid #558C03;
     width: calc(100% - 75%);
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 23px;
     border-radius: 20px;
     -webkit-transition-duration: 0.4s;
     /* Safari */
@@ -694,7 +694,7 @@ main {
 .form-inline button:hover {
     background-color: #DDF291;
     color: black;
-    border: 3px solid #558C03;
+    border: 0px solid #558C03;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -718,9 +718,15 @@ main {
         font-weight: 600;
         font-style: oblique;
     }
+    .index-links .index-text {
+        margin-bottom: 0px;
+    }
     .index-links {
         overflow: inherit;
         height: auto;
+    }
+    .index-links .index-text div {
+        margin-bottom: 0px;
     }
     .index-links div {
         background-color: none;
@@ -728,6 +734,9 @@ main {
     .index-text div {
         margin-top: 30px;
         margin-bottom: 0px;
+    }
+    .index-title .home {
+        margin-top: 20px;
     }
     .index-title div {
         margin-top: 0px;
@@ -891,6 +900,8 @@ input.password {
 
 .login-form .login-button:hover {
     background: #E5F2D0;
+    line-height: 31px;
+    border: 0px solid #558C03;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -911,7 +922,8 @@ input.password {
         font-size: 24px;
     }
     .login-form .login-button {
-        margin-right: -50px;
+        padding: 0 23px;
+        margin-right: -47px;
     }
 }
 
