@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Nigorjeanluc/Teamwork.svg?branch=develop)](https://travis-ci.org/Nigorjeanluc/Teamwork)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2fc79a3dcdb30be04e2f/maintainability)](https://codeclimate.com/github/Nigorjeanluc/Teamwork/maintainability)
 # Teamwork Project
 Teamwork project is an online web application that provides an easy way to communicate with your co-workers. This can help to solve problems of miscommunication within an organisation and increase the organisation's effectiveness by collaboration between co-workers.
 
