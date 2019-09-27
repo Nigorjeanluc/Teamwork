@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "mocha --require @babel/register server/tests/ --exit",
-        "start": "node ./dist/index",
+        "start": "node ./dist/app",
         "dev": "nodemon --exec babel-node server/app",
         "build": "babel server -d dist",
         "lint": "eslint server"
