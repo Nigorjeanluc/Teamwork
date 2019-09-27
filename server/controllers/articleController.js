@@ -11,7 +11,7 @@ const articleController = {
     getArticle: (req, res) => {
         const matchArticle = articles.find((article) => article.id === parseInt(req.params.id, 10));
         if (matchArticle) {
-            res.status(200).json({
+            return res.status(200).json({
                 status: 200,
                 message: 'Fetched article successfully',
                 data: matchArticle,
@@ -26,7 +26,7 @@ const articleController = {
 
         if (article) {
             articles.splice(articles.indexOf(article), 1);
-            res.status(204).json({
+            return res.status(204).json({
                 status: 204,
                 message: 'article successfully deleted',
             });
@@ -35,8 +35,8 @@ const articleController = {
     },
     postArticle: (req, res) => {
         const article = {
-            id: parseInt(req.body.id, 10),
-            createdOn: 'in the future',
+            id: parseInt(articles.length - 1, 10),
+            createdOn: Date(new Date()),
             title: req.body.title,
             article: req.body.article,
             authorId: parseInt(req.body.authorId, 10),
@@ -52,41 +52,25 @@ const articleController = {
     },
     patchArticle: (req, res) => {
         const id = parseInt(req.params.id, 10);
-        // eslint-disable-next-line max-len
-        const matchArticle = articles.find((articleOne) => articleOne.id === id);
+        const updatedArticle = req.body;
 
-        const article = {
-            title: req.body.title,
-            article: req.body.article,
-        };
+        for (const article of articles) {
+            if (article.id === id) {
+                article.title = updatedArticle.title || article.title;
+                article.article = updatedArticle.article || article.article;
 
-        if (matchArticle) {
-            if (article.title && article.article) {
-                articles[id - 1].title = article.title;
-                articles[id - 1].article = article.article;
-                res.status(200).json({
+                return res.status(200).json({
                     status: 200,
-                    message: 'Change Title and Content',
-                    data: matchArticle,
-                });
-            } else if (article.title) {
-                articles[id - 1].title = article.title;
-                res.status(200).json({
-                    status: 200,
-                    message: 'Change Title',
-                    data: matchArticle,
-                });
-            } else if (article.article) {
-                articles[id - 1].article = article.article;
-                res.status(200).json({
-                    status: 200,
-                    message: 'Change Content',
-                    data: matchArticle,
+                    message: 'Article edited successfully',
+                    data: article,
                 });
             }
         }
 
-        res.sendStatus(404);
+        res.status(404).json({
+            status: 404,
+            message: 'No found with the given id',
+        });
     },
 };
 

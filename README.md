@@ -27,6 +27,26 @@ Teamwork project is an online web application that provides an easy way to commu
   * Express
   * mocha
 
+# To Getting Started
+Starting application run the following npm command
+* `npm run server:start` for starting the server.
+
+# For Testing
+When you need to test this application and see the tests coverate rate:
+* `npm run test` for running the tests, and getting coverage rate summary.
+
+# APIs
+
+* POST `/api/v1/auth/signup` signup on banka application.
+* POST `/api/v1/auth/signin` signin on banka application. 
+
+* POST `/api/v1/articles` Create an article.
+* GET `/api/v1/feeds` Read all articles.
+* PATCH `/api/v1/articles/:id` Edit an article.
+* DELETE `/api/v1/articles/:id` Delete an article.
+
+* POST `/api/v1/articles/:id/comments` Create a comment for a specific article.
+
 ## Github-page
 GitHub pages (gh-page) for this project Team work web application and can be accessed using this link: (https://nigorjeanluc.github.io/Teamwork/UI/html ) or simply [click here](https://nigorjeanluc.github.io/Teamwork/UI/html)
 

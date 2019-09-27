@@ -1,11 +1,15 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const users = [];
 
 const userController = {
     signUp: (req, res, next) => {
         const user = {
-            id: parseInt(req.body.id, 10),
+            id: users.length - 1,
             createdOn: Date(Date.now).toString(),
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -45,10 +49,23 @@ const userController = {
 
                 const done = users.push(user);
                 if (done) {
+                    const token = jwt.sign({
+                        id: user.id,
+                        createdOn: user.createdOn,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        email: user.email,
+                        gender: user.gender,
+                        jobRole: user.jobRole,
+                        department: user.department,
+                        address: user.address,
+                    }, process.env.JWT_KEY, {
+                        expiresIn: '1h',
+                    });
                     return res.status(201).json({
                         status: 201,
                         message: 'User created successfully',
-                        data: user,
+                        token,
                     });
                 }
             }),
@@ -56,8 +73,6 @@ const userController = {
     },
     signIn: (req, res, next) => {
         const userAuth = {
-            id: parseInt(req.body.id, 10),
-            LoggedOn: Date(Date.now).toString(),
             email: req.body.email,
             password: req.body.password,
         };
@@ -75,10 +90,23 @@ const userController = {
                 }
 
                 if (result) {
+                    const token = jwt.sign({
+                        id: alreadyUser.id,
+                        createdOn: alreadyUser.createdOn,
+                        firstName: alreadyUser.firstName,
+                        lastName: alreadyUser.lastName,
+                        email: alreadyUser.email,
+                        gender: alreadyUser.gender,
+                        jobRole: alreadyUser.jobRole,
+                        department: alreadyUser.department,
+                        address: alreadyUser.address,
+                    }, process.env.JWT_KEY, {
+                        expiresIn: '1h',
+                    });
                     return res.status(200).json({
                         status: 200,
                         message: 'User is successfully logged in',
-                        data: alreadyUser,
+                        token,
                     });
                 }
                 return res.status(401).json({
