@@ -5,8 +5,9 @@
     "main": "index.js",
     "scripts": {
         "test": "mocha --require @babel/register server/tests/ --exit",
-        "start": "nodemon --exec babel-node ./server/app",
-        "server": "nodemon --exec babel-node server/app",
+        "start": "node ./dist/index",
+        "dev": "nodemon --exec babel-node server/app",
+        "build": "babel server -d dist",
         "lint": "eslint server"
     },
     "repository": {
@@ -22,6 +23,7 @@
     "dependencies": {
         "bcrypt": "^3.0.6",
         "body-parser": "^1.19.0",
+        "@babel/register": "^7.6.2",
         "chai": "^4.2.0",
         "chai-http": "^4.3.0",
         "dotenv": "^8.1.0",
@@ -35,7 +37,6 @@
         "@babel/core": "^7.6.0",
         "@babel/node": "^7.6.1",
         "@babel/preset-env": "^7.6.0",
-        "@babel/register": "^7.6.2",
         "babel-polyfill": "^6.26.0",
         "eslint": "^6.4.0",
         "eslint-config-airbnb-base": "^14.0.0",
