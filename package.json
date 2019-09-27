@@ -4,7 +4,7 @@
     "description": "TeamWork project for workmate collaboration",
     "main": "index.js",
     "scripts": {
-        "test": "mocha --require @babel/register server/tests/*.spec.js --exit",
+        "test": "mocha --require @babel/register server/tests/ --exit",
         "start": "nodemon --exec babel-node ./server/app",
         "server": "nodemon --exec babel-node server/app",
         "lint": "eslint server"
