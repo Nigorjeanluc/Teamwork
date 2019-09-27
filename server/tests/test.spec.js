@@ -32,8 +32,7 @@ describe('Article Controller', () => {
             expect(res.status).to.equals(401);
             expect(res.body).to.be.an('object');
             expect(res.body.message).to.be.a('string');
-            // expect(res.body.data).not.to.be.empty;
-            // expect(res.body.data[1].id).equals(2);
+            console.log(res.body);
         });
     });
 });
