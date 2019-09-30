@@ -1,16 +1,15 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import users from '../models/userModel';
 
 dotenv.config();
-
-const users = [];
 
 const userController = {
     signUp: (req, res, next) => {
         const user = {
             id: users.length - 1,
-            createdOn: Date(Date.now).toString(),
+            createdOn: new Date().toString(),
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
@@ -27,7 +26,7 @@ const userController = {
                 }
                 const user = {
                     id: parseInt(req.body.id, 10),
-                    createdOn: Date(Date.now).toString(),
+                    createdOn: new Date().toString(),
                     firstName: req.body.firstName,
                     lastName: req.body.lastName,
                     email: req.body.email,

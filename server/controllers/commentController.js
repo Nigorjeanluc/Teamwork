@@ -6,7 +6,7 @@ const commentController = {
         for (const article of articles) {
             if (article.id === articleId) {
                 const comment = {
-                    id: articleId,
+                    id: article.comments.length + 1,
                     articleId: parseInt(req.params.id, 10),
                     createdOn: new Date().toLocaleString(),
                     // eslint-disable-next-line max-len

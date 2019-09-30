@@ -52,7 +52,7 @@ var articleController = {
   },
   postArticle: function postArticle(req, res) {
     var article = {
-      id: parseInt(_articleModel["default"].length - 1, 10),
+      id: parseInt(req.body.id, 10),
       createdOn: Date(new Date()),
       title: req.body.title,
       article: req.body.article,

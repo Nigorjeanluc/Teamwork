@@ -35,7 +35,7 @@ const articleController = {
     },
     postArticle: (req, res) => {
         const article = {
-            id: parseInt(articles.length - 1, 10),
+            id: parseInt(req.body.id, 10),
             createdOn: Date(new Date()),
             title: req.body.title,
             article: req.body.article,
