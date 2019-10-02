@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 import articleRoutes from './routes/articleRoutes';
 import userRoutes from './routes/userRoutes';
+import commentRoutes from './routes/commentRoutes';
 
 dotenv.config();
 
@@ -35,13 +36,20 @@ app.use((req, res, next) => {
 
 app.use(userRoutes);
 app.use(articleRoutes);
+app.use(commentRoutes);
 
-app.get('/', (req, res) => {
-    res.send({ status: 200, message: 'Welcome to TeamWork Application' });
+app.use((req, res, next) => {
+    const error = new Error('Not found');
+    error.status = 404;
+    next(error);
 });
 
-app.get('/*', (req, res) => {
-    res.sendStatus(404);
+app.use((error, req, res, next) => {
+    res.status(error.status || 500);
+    res.json({
+        status: error.status,
+        message: error.message,
+    });
 });
 
 app.listen(port, () => {

@@ -4,9 +4,10 @@
     "description": "TeamWork project for workmate collaboration",
     "main": "index.js",
     "scripts": {
-        "test": "mocha --require @babel/register server/tests/*.spec.js --exit",
-        "start": "nodemon --exec babel-node ./server/app",
-        "server": "nodemon --exec babel-node server/app",
+        "test": "mocha --require @babel/register server/tests/ --exit",
+        "start": "node ./dist/app",
+        "dev": "nodemon --exec babel-node server/app",
+        "build": "babel server -d dist",
         "lint": "eslint server"
     },
     "repository": {
@@ -20,6 +21,7 @@
     },
     "homepage": "https://github.com/Nigorjeanluc/Teamwork#readme",
     "dependencies": {
+        "@babel/register": "^7.6.2",
         "bcrypt": "^3.0.6",
         "body-parser": "^1.19.0",
         "chai": "^4.2.0",
@@ -28,14 +30,14 @@
         "express": "^4.17.1",
         "joi": "^14.3.1",
         "jsonwebtoken": "^8.5.1",
-        "mocha": "^6.2.0"
+        "mocha": "^6.2.0",
+        "supertest": "^4.0.2"
     },
     "devDependencies": {
         "@babel/cli": "^7.6.0",
         "@babel/core": "^7.6.0",
         "@babel/node": "^7.6.1",
         "@babel/preset-env": "^7.6.0",
-        "@babel/register": "^7.6.2",
         "babel-polyfill": "^6.26.0",
         "eslint": "^6.4.0",
         "eslint-config-airbnb-base": "^14.0.0",
