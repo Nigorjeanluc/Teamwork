@@ -180,8 +180,8 @@ select {
 
 header {
     background: #ABD904;
-    background: -webkit-linear-gradient(top, #ABD904 0%, rgba(85, 140, 3, 0.644) 100%);
-    background: linear-gradient(to bottom, #ABD904 0%, rgba(85, 140, 3, 0.644) 100%);
+    background: -webkit-linear-gradient(top, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
+    background: linear-gradient(to bottom, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
     width: 100%;
     height: 100px;
 }
@@ -839,7 +839,7 @@ main {
 
 .index-banner-login {
     width: 100%;
-    height: calc(70vh - 100px);
+    height: calc(60vh - 100px);
     background-image: url('../img/banner2.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -852,7 +852,7 @@ main {
 }
 
 .login-form-container {
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     display: block;
     justify-content: center;
@@ -870,20 +870,16 @@ main {
 }
 
 .login-form {
-    box-align: center;
+    text-align: center;
 }
 
 input.username {
     margin: 0;
     text-align: center;
-    outline: 0;
     border: 3px solid rgba(85, 140, 3, 0.644);
-    width: 120%;
-    left: -10%;
+    width: 90%;
     position: relative;
-    top: 5px;
-    z-index: 2;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: Catamaran;
     font-size: 16px;
     line-height: 28px;
@@ -893,14 +889,10 @@ input.username {
 input.password {
     margin: 20px 0;
     text-align: center;
-    outline: 0;
     border: 3px solid rgba(85, 140, 3, 0.644);
-    width: 120%;
-    left: -10%;
+    width: 90%;
     position: relative;
-    top: 5px;
-    z-index: 2;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: Catamaran;
     font-size: 16px;
     line-height: 28px;
@@ -911,24 +903,16 @@ input.password {
     margin: 0;
     margin-bottom: 10px;
     text-align: center;
-    outline: 0;
-    width: 120%;
-    left: -10%;
-    position: relative;
-    top: 5px;
-    z-index: 2;
+    width: 40%;
     border-radius: 20px;
     font-family: Catamaran;
     font-size: 16px;
     line-height: 28px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
     font-weight: 600;
-    background: #ABD904;
     background: rgba(85, 140, 3, 0.644);
     color: #040F3D;
     text-transform: uppercase;
-    width: 120%;
-    border-radius: 20px;
 }
 
 .login-form .login-button:hover {
@@ -953,13 +937,6 @@ input.password {
     }
     input.password {
         font-size: 24px;
-    }
-    .login-form .login-button {
-        padding: 0 23px;
-        margin-right: -47px;
-    }
-    .login-form .login-button:hover {
-        padding: 3px 26px;
     }
 }
 
@@ -1001,7 +978,7 @@ input.password {
 }
 
 .register-form {
-    box-align: center;
+    text-align: center;
 }
 
 input.register-fullname {
@@ -1009,12 +986,11 @@ input.register-fullname {
     text-align: center;
     outline: 0;
     border: 3px solid rgba(85, 140, 3, 0.644);
-    width: 120%;
-    left: -10%;
+    width: 90%;
     position: relative;
     top: 5px;
     z-index: 2;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: Catamaran;
     font-size: 16px;
     line-height: 28px;
@@ -1026,12 +1002,11 @@ input.register-email {
     text-align: center;
     outline: 0;
     border: 3px solid rgba(85, 140, 3, 0.644);
-    width: 120%;
-    left: -10%;
+    width: 90%;
     position: relative;
     top: 5px;
     z-index: 2;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: Catamaran;
     font-size: 16px;
     line-height: 28px;
@@ -1043,12 +1018,11 @@ input.register-position {
     text-align: center;
     outline: 0;
     border: 3px solid rgba(85, 140, 3, 0.644);
-    width: 120%;
-    left: -10%;
+    width: 90%;
     position: relative;
     top: 5px;
     z-index: 2;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: Catamaran;
     font-size: 16px;
     line-height: 28px;
@@ -1060,12 +1034,11 @@ input.register-username {
     text-align: center;
     outline: 0;
     border: 3px solid rgba(85, 140, 3, 0.644);
-    width: 120%;
-    left: -10%;
+    width: 90%;
     position: relative;
     top: 5px;
     z-index: 2;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: Catamaran;
     font-size: 16px;
     line-height: 28px;
@@ -1077,29 +1050,11 @@ input.register-password {
     text-align: center;
     outline: 0;
     border: 3px solid rgba(85, 140, 3, 0.644);
-    width: 120%;
-    left: -10%;
+    width: 90%;
     position: relative;
     top: 5px;
     z-index: 2;
-    border-radius: 20px;
-    font-family: Catamaran;
-    font-size: 16px;
-    line-height: 28px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
-}
-
-input.register-confirm-password {
-    margin: 20px 0;
-    text-align: center;
-    outline: 0;
-    border: 3px solid rgba(85, 140, 3, 0.644);
-    width: 120%;
-    left: -10%;
-    position: relative;
-    top: 5px;
-    z-index: 2;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: Catamaran;
     font-size: 16px;
     line-height: 28px;
@@ -1107,27 +1062,19 @@ input.register-confirm-password {
 }
 
 .register-form .register-button {
-    margin: 0;
+    margin-top: 20px;
     margin-bottom: 10px;
     text-align: center;
-    outline: 0;
-    width: 120%;
-    left: -10%;
-    position: relative;
-    top: 5px;
-    z-index: 2;
+    width: 50%;
     border-radius: 20px;
     font-family: Catamaran;
     font-size: 16px;
     line-height: 28px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
     font-weight: 600;
-    background: #ABD904;
     background: rgba(85, 140, 3, 0.644);
     color: #040F3D;
     text-transform: uppercase;
-    width: 120%;
-    border-radius: 20px;
 }
 
 .register-form .register-button:hover {
@@ -1162,12 +1109,6 @@ input.register-confirm-password {
     input.register-password {
         font-size: 24px;
     }
-    input.register-confirm-password {
-        font-size: 24px;
-    }
-    .register-form .register-button {
-        margin-right: -50px;
-    }
 }
 
 
@@ -1178,8 +1119,8 @@ footer {
     padding: 40px 40px;
     margin-top: 0;
     background: #ABD904;
-    background: -webkit-linear-gradient(top, #ABD904 0%, rgba(85, 140, 3, 0.644) 100%);
-    background: linear-gradient(to bottom, #ABD904 0%, rgba(85, 140, 3, 0.644) 100%);
+    background: -webkit-linear-gradient(top, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
+    background: linear-gradient(to bottom, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
     overflow: hidden;
 }
 
@@ -1191,8 +1132,8 @@ footer {
     padding: 40px 40px;
     margin-top: 0;
     background: #ABD904;
-    background: -webkit-linear-gradient(top, #ABD904 0%, rgba(85, 140, 3, 0.644) 100%);
-    background: linear-gradient(to bottom, #ABD904 0%, rgba(85, 140, 3, 0.644) 100%);
+    background: -webkit-linear-gradient(top, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
+    background: linear-gradient(to bottom, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
     overflow: hidden;
 }
 
