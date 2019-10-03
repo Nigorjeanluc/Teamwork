@@ -4,9 +4,7 @@ import func from '../helpers/functions';
 
 
 const userController = {
-    // eslint-disable-next-line consistent-return
     signUp: (req, res) => {
-        // eslint-disable-next-line max-len
         const user = new User(users, req.body.firstName, req.body.lastName, req.body.email, req.body.gender, req.body.jobRole, req.body.department, req.body.address, req.body.password);
         const alreadyUser = func.emailFinder(users, user.email) || func.idFinder(users, user.id);
 
@@ -38,7 +36,6 @@ const userController = {
         if (alreadyUser) {
             const result = func.comparePassword(userAuth.password, alreadyUser.password);
             if (result) {
-                // eslint-disable-next-line max-len
                 const token = func.jwtSign(alreadyUser.id, alreadyUser.firstName, alreadyUser.lastName, alreadyUser.email);
                 return res.status(200).json({
                     status: 200,
