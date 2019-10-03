@@ -19,23 +19,6 @@ const func = {
     }),
     hashPassword: (password) => bcrypt.hash(password, 10, (err, hash) => hash),
     comparePassword: (password, matchPassword) => bcrypt.compareSync(password, matchPassword),
-    userFunc: (condition, res, userId, userFirstname, userLastname, userEmail, httpCode, message) => {
-        if (condition) {
-            const token = jwt.sign({
-                id: userId,
-                firstName: userFirstname,
-                lastName: userLastname,
-                email: userEmail,
-            }, process.env.JWT_KEY, {
-                expiresIn: '1h',
-            });
-            return res.status(httpCode).json({
-                status: httpCode,
-                message,
-                token,
-            });
-        }
-    },
 };
 
 export default func;

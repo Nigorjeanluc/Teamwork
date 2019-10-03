@@ -1,6 +1,7 @@
 import users from '../models/userModel';
 import User from '../models/userClass';
 import func from '../helpers/functions';
+import userFunc from '../helpers/userFunc';
 
 
 const userController = {
@@ -19,7 +20,7 @@ const userController = {
 
         const message = 'User created successfully';
 
-        func.userFunc(done, res, user.id, user.firstName, user.lastName, user.email, 201, message);
+        userFunc.jwtFunc(done, res, user.id, user.firstName, user.lastName, user.email, 201, message);
         // if (done) {
         //     const token = func.jwtSign(user.id, user.firstName, user.lastName, user.email);
         //     return res.status(201).json({
@@ -40,7 +41,7 @@ const userController = {
         if (alreadyUser) {
             const result = func.comparePassword(userAuth.password, alreadyUser.password);
             const message = 'User is successfully logged in';
-            func.userFunc(result, res, alreadyUser.id, alreadyUser.firstName, alreadyUser.lastName, alreadyUser.email, 200, message);
+            userFunc.jwtFunc(result, res, alreadyUser.id, alreadyUser.firstName, alreadyUser.lastName, alreadyUser.email, 200, message);
 
             return res.status(401).json({
                 status: 401,
