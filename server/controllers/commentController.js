@@ -10,9 +10,7 @@ const commentController = {
                 id: func.idIncrementor(article.comments),
                 articleId: func.toInteger(req.params.id),
                 createdOn: new Date().toLocaleString(),
-                // eslint-disable-next-line max-len
                 articleTitle: article.title,
-                // eslint-disable-next-line max-len
                 article: article.article,
                 authorId: func.toInteger(req.userData.id),
                 comments: req.body.comment,

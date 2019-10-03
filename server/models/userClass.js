@@ -1,7 +1,6 @@
 import func from '../helpers/functions';
 
 class User {
-    // eslint-disable-next-line no-restricted-syntax
     constructor(users, firstName, lastName, email, gender, jobRole, department, address, password) {
         this.id = func.idIncrementor(users);
         this.createdOn = new Date().toString();
