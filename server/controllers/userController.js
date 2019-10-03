@@ -16,14 +16,18 @@ const userController = {
         }
 
         const done = users.push(user);
-        if (done) {
-            const token = func.jwtSign(user.id, user.firstName, user.lastName, user.email);
-            return res.status(201).json({
-                status: 201,
-                message: 'User created successfully',
-                token,
-            });
-        }
+
+        const message = 'User created successfully';
+
+        func.userFunc(done, res, user.id, user.firstName, user.lastName, user.email, 201, message);
+        // if (done) {
+        //     const token = func.jwtSign(user.id, user.firstName, user.lastName, user.email);
+        //     return res.status(201).json({
+        //         status: 201,
+        //         message: 'User created successfully',
+        //         token,
+        //     });
+        // }
     },
     signIn: (req, res) => {
         const userAuth = {
@@ -35,14 +39,9 @@ const userController = {
 
         if (alreadyUser) {
             const result = func.comparePassword(userAuth.password, alreadyUser.password);
-            if (result) {
-                const token = func.jwtSign(alreadyUser.id, alreadyUser.firstName, alreadyUser.lastName, alreadyUser.email);
-                return res.status(200).json({
-                    status: 200,
-                    message: 'User is successfully logged in',
-                    token,
-                });
-            }
+            const message = 'User is successfully logged in';
+            func.userFunc(result, res, alreadyUser.id, alreadyUser.firstName, alreadyUser.lastName, alreadyUser.email, 200, message);
+
             return res.status(401).json({
                 status: 401,
                 message: 'Wrong password',
