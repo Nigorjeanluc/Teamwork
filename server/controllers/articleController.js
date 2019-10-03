@@ -1,4 +1,6 @@
 import articles from '../models/articleModel';
+import Article from '../models/articleClass';
+import func from '../helpers/functions';
 
 const articleController = {
     getAllArticles: (req, res) => {
@@ -9,20 +11,23 @@ const articleController = {
         });
     },
     getArticle: (req, res) => {
-        const matchArticle = articles.find((article) => article.id === parseInt(req.params.id, 10));
-        if (matchArticle) {
+        const id = func.toInteger(req.params.id);
+        const article = func.idFinder(articles, id);
+        if (article) {
             return res.status(200).json({
                 status: 200,
                 message: 'Fetched article successfully',
-                data: matchArticle,
+                data: article,
             });
         }
-        res.sendStatus(404);
+        return res.status(404).json({
+            status: 404,
+            message: 'Article does not exist',
+        });
     },
     deleteArticle: (req, res) => {
-        const id = parseInt(req.params.id, 10);
-        // eslint-disable-next-line no-shadow
-        const article = articles.find((article) => article.id === id);
+        const id = func.toInteger(req.params.id);
+        const article = func.idFinder(articles, id);
 
         if (article) {
             articles.splice(articles.indexOf(article), 1);
@@ -31,17 +36,14 @@ const articleController = {
                 message: 'article successfully deleted',
             });
         }
-        res.sendStatus(404);
+        return res.status(404).json({
+            status: 404,
+            message: 'Article does not exist',
+        });
     },
     postArticle: (req, res) => {
-        const article = {
-            id: parseInt(req.body.id, 10),
-            createdOn: Date(new Date()),
-            title: req.body.title,
-            article: req.body.article,
-            authorId: parseInt(req.body.authorId, 10),
-            comments: req.body.comments,
-        };
+        const id = func.toInteger(req.userData.id);
+        const article = new Article(articles, req.body.title, req.body.article, id);
 
         articles.push(article);
         res.status(201).json({
@@ -51,25 +53,24 @@ const articleController = {
         });
     },
     patchArticle: (req, res) => {
-        const id = parseInt(req.params.id, 10);
+        const id = func.toInteger(req.params.id);
+        const article = func.idFinder(articles, id);
         const updatedArticle = req.body;
 
-        for (const article of articles) {
-            if (article.id === id) {
-                article.title = updatedArticle.title || article.title;
-                article.article = updatedArticle.article || article.article;
+        if (article.id === id) {
+            article.title = updatedArticle.title || article.title;
+            article.article = updatedArticle.article || article.article;
 
-                return res.status(200).json({
-                    status: 200,
-                    message: 'Article edited successfully',
-                    data: article,
-                });
-            }
+            return res.status(200).json({
+                status: 200,
+                message: 'Article edited successfully',
+                data: article,
+            });
         }
 
-        res.status(404).json({
+        return res.status(404).json({
             status: 404,
-            message: 'No found with the given id',
+            message: 'Article does not exist',
         });
     },
 };

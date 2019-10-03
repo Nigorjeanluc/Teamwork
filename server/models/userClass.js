@@ -1,0 +1,19 @@
+import func from '../helpers/functions';
+
+class User {
+    // eslint-disable-next-line no-restricted-syntax
+    constructor(users, firstName, lastName, email, gender, jobRole, department, address, password) {
+        this.id = func.idIncrementor(users);
+        this.createdOn = new Date().toString();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.gender = gender;
+        this.jobRole = jobRole;
+        this.department = department;
+        this.address = address;
+        this.password = func.hashPassword(password);
+    }
+}
+
+export default User;
