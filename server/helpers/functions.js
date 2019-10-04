@@ -5,6 +5,15 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const func = {
+    randomString: (length) => {
+        const result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    },
     idFinder: (items, id) => items.find((item) => item.id === id),
     emailFinder: (items, email) => items.find((item) => item.email === email),
     idIncrementor: (arr) => arr.length + 1,
