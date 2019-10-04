@@ -235,6 +235,11 @@ main {
 .main-margin-bottom {
     background-color: #E5F2D0;
     padding-bottom: 0px !important;
+    height: 100vh;
+}
+
+.index-main {
+    height: 100vh;
 }
 
 
@@ -2780,9 +2785,13 @@ input.register-password {
 /*FOOTER*/
 
 footer {
+    position: static;
+    bottom: 0;
+    left: 0;
     width: calc(100% - 80px);
     padding: 40px 40px;
     margin-top: 0;
+    margin-bottom: 0;
     background: #ABD904;
     background: -webkit-linear-gradient(top, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
     background: linear-gradient(to bottom, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
@@ -2793,9 +2802,13 @@ footer {
 /*FOOTER FOR LOGIN AND REGISTER*/
 
 .signin {
+    position: static;
+    bottom: 0;
+    left: 0;
     width: calc(100% - 80px);
     padding: 40px 40px;
     margin-top: 0;
+    margin-bottom: 0;
     background: #ABD904;
     background: -webkit-linear-gradient(top, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
     background: linear-gradient(to bottom, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
