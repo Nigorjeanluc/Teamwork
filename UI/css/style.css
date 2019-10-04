@@ -228,12 +228,13 @@ header .header-cases {
 }
 
 main {
-    background-color: #E5F2D0;
+    height: 100vh;
+    background-color: rgb(214, 223, 199);
     padding-bottom: 20px;
 }
 
 .main-margin-bottom {
-    background-color: #E5F2D0;
+    background-color: rgb(214, 223, 199);
     padding-bottom: 0px !important;
     height: 100vh;
 }
@@ -267,10 +268,10 @@ main {
         font-size: 22px;
     }
     header nav ul li a:hover {
-        color: #E5F2D0;
+        color: rgb(214, 223, 199);
     }
     header nav ul li .active {
-        color: #E5F2D0;
+        color: rgb(214, 223, 199);
     }
     header .header-cases {
         display: block;
@@ -317,10 +318,10 @@ main {
         font-size: 22px;
     }
     header nav ul li a:hover {
-        color: #E5F2D0;
+        color: rgb(214, 223, 199);
     }
     header nav ul li .active {
-        color: #E5F2D0;
+        color: rgb(214, 223, 199);
     }
     header .header-cases {
         display: block;
@@ -392,11 +393,12 @@ main {
         display: none;
     }
     main {
-        background-color: #E5F2D0;
+        background-color: rgb(214, 223, 199);
         padding-bottom: 20px;
+        height: 100vh;
     }
     .main-margin-bottom {
-        background-color: #E5F2D0;
+        background-color: rgb(214, 223, 199);
         padding-bottom: 0px !important;
     }
 }
@@ -433,20 +435,21 @@ main {
         font-size: 22px;
     }
     header nav ul li a:hover {
-        color: #E5F2D0;
+        color: rgb(214, 223, 199);
     }
     header nav ul li .active {
-        color: #E5F2D0;
+        color: rgb(214, 223, 199);
     }
     header .header-cases {
         display: none;
     }
     main {
-        background-color: #E5F2D0;
+        height: 100vh;
+        background-color: rgb(214, 223, 199);
         padding-bottom: 20px;
     }
     .main-margin-bottom {
-        background-color: #E5F2D0;
+        background-color: rgb(214, 223, 199);
         padding-bottom: 0px !important;
     }
 }
@@ -501,11 +504,12 @@ main {
         display: none;
     }
     main {
-        background-color: #E5F2D0;
+        height: 100vh;
+        background-color: rgb(214, 223, 199);
         padding-bottom: 20px;
     }
     .main-margin-bottom {
-        background-color: #E5F2D0;
+        background-color: rgb(214, 223, 199);
         padding-bottom: 0px !important;
     }
 }
@@ -2586,7 +2590,7 @@ input.password {
 }
 
 .login-form .login-button:hover {
-    background: #E5F2D0;
+    background: rgb(214, 223, 199);
     border: 0px solid rgba(85, 140, 3, 0.644);
     padding: 3px 23px;
 }
@@ -2748,7 +2752,7 @@ input.register-password {
 }
 
 .register-form .register-button:hover {
-    background: #E5F2D0;
+    background: rgb(214, 223, 199);
     border: 0px;
     padding: 3px 23px;
 }
@@ -2785,9 +2789,6 @@ input.register-password {
 /*FOOTER*/
 
 footer {
-    position: static;
-    bottom: 0;
-    left: 0;
     width: calc(100% - 80px);
     padding: 40px 40px;
     margin-top: 0;
