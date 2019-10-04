@@ -1,5 +1,3 @@
-const articles = [{
-    comments: [],
-}];
+const articles = [];
 
 export default articles;
