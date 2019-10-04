@@ -2509,7 +2509,7 @@ main {
 
 .index-banner-login {
     width: 100%;
-    height: calc(60vh - 100px);
+    height: 100vh;
     background-image: url('../img/banner2.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -2615,7 +2615,7 @@ input.password {
 
 .index-banner-register {
     width: 100%;
-    height: calc(100vh - 100px);
+    height: 100vh;
     background-image: url('../img/banner2.jpg');
     background-repeat: no-repeat;
     background-position: center;
