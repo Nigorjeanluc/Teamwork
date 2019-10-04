@@ -76,12 +76,9 @@ video {
     background: transparent;
 }
 
-html,
 body {
-    position: relative;
     line-height: 1;
     background: rgb(214, 223, 199);
-    height: 100vh;
 }
 
 article,
@@ -231,13 +228,12 @@ header .header-cases {
 }
 
 main {
-    position: relative;
-    background-color: rgb(214, 223, 199);
+    background-color: #E5F2D0;
     padding-bottom: 20px;
 }
 
 .main-margin-bottom {
-    background-color: rgb(214, 223, 199);
+    background-color: #E5F2D0;
     padding-bottom: 0px !important;
 }
 
@@ -266,10 +262,10 @@ main {
         font-size: 22px;
     }
     header nav ul li a:hover {
-        color: rgb(214, 223, 199);
+        color: #E5F2D0;
     }
     header nav ul li .active {
-        color: rgb(214, 223, 199);
+        color: #E5F2D0;
     }
     header .header-cases {
         display: block;
@@ -316,10 +312,10 @@ main {
         font-size: 22px;
     }
     header nav ul li a:hover {
-        color: rgb(214, 223, 199);
+        color: #E5F2D0;
     }
     header nav ul li .active {
-        color: rgb(214, 223, 199);
+        color: #E5F2D0;
     }
     header .header-cases {
         display: block;
@@ -391,11 +387,11 @@ main {
         display: none;
     }
     main {
-        background-color: rgb(214, 223, 199);
+        background-color: #E5F2D0;
         padding-bottom: 20px;
     }
     .main-margin-bottom {
-        background-color: rgb(214, 223, 199);
+        background-color: #E5F2D0;
         padding-bottom: 0px !important;
     }
 }
@@ -432,20 +428,20 @@ main {
         font-size: 22px;
     }
     header nav ul li a:hover {
-        color: rgb(214, 223, 199);
+        color: #E5F2D0;
     }
     header nav ul li .active {
-        color: rgb(214, 223, 199);
+        color: #E5F2D0;
     }
     header .header-cases {
         display: none;
     }
     main {
-        background-color: rgb(214, 223, 199);
+        background-color: #E5F2D0;
         padding-bottom: 20px;
     }
     .main-margin-bottom {
-        background-color: rgb(214, 223, 199);
+        background-color: #E5F2D0;
         padding-bottom: 0px !important;
     }
 }
@@ -500,11 +496,11 @@ main {
         display: none;
     }
     main {
-        background-color: rgb(214, 223, 199);
+        background-color: #E5F2D0;
         padding-bottom: 20px;
     }
     .main-margin-bottom {
-        background-color: rgb(214, 223, 199);
+        background-color: #E5F2D0;
         padding-bottom: 0px !important;
     }
 }
@@ -1003,8 +999,6 @@ main {
 
 @media (min-width: 1281px) {
     .wrapper {
-        display: block;
-        height: 100vh;
         width: 1000px;
         margin: 0 auto;
         display: flex;
@@ -1124,8 +1118,6 @@ main {
 
 @media (min-width: 1025px) and (max-width: 1280px) {
     .wrapper {
-        display: block;
-        height: 100vh;
         width: 1000px;
         margin: 0 auto;
         display: flex;
@@ -1599,8 +1591,6 @@ main {
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .wrapper {
-        display: block;
-        height: 100vh;
         width: 1000px;
         margin: 0 auto;
         display: flex;
@@ -2514,7 +2504,7 @@ main {
 
 .index-banner-login {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 100px);
     background-image: url('../img/banner2.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -2591,7 +2581,7 @@ input.password {
 }
 
 .login-form .login-button:hover {
-    background: rgb(214, 223, 199);
+    background: #E5F2D0;
     border: 0px solid rgba(85, 140, 3, 0.644);
     padding: 3px 23px;
 }
@@ -2620,7 +2610,7 @@ input.password {
 
 .index-banner-register {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 100px);
     background-image: url('../img/banner2.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -2753,7 +2743,7 @@ input.register-password {
 }
 
 .register-form .register-button:hover {
-    background: rgb(214, 223, 199);
+    background: #E5F2D0;
     border: 0px;
     padding: 3px 23px;
 }
@@ -2790,11 +2780,9 @@ input.register-password {
 /*FOOTER*/
 
 footer {
-    margin-top: auto;
-    position: static;
     width: calc(100% - 80px);
     padding: 40px 40px;
-    margin-bottom: -100px;
+    margin-top: 0;
     background: #ABD904;
     background: -webkit-linear-gradient(top, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
     background: linear-gradient(to bottom, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
@@ -2805,11 +2793,9 @@ footer {
 /*FOOTER FOR LOGIN AND REGISTER*/
 
 .signin {
-    position: static;
     width: calc(100% - 80px);
     padding: 40px 40px;
     margin-top: 0;
-    margin-bottom: 0;
     background: #ABD904;
     background: -webkit-linear-gradient(top, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
     background: linear-gradient(to bottom, rgb(129, 163, 4) 0%, rgba(85, 140, 3, 0.644) 100%);
