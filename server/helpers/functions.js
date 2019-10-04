@@ -17,7 +17,7 @@ const func = {
     }, process.env.JWT_KEY, {
         expiresIn: '1h',
     }),
-    hashPassword: (password) => bcrypt.hashSync(password, 10),
+    hashPassword: (password) => bcrypt.hash(password, 10, (err, hash) => hash),
     comparePassword: (password, matchPassword) => bcrypt.compareSync(password, matchPassword),
 };
 
