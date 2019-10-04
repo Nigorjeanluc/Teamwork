@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import app from '../app';
+import Article from '../models/articleClass';
+import articles from '../models/articleModel';
 
 dotenv.config();
 
@@ -20,19 +22,7 @@ const user = {
     password: bcrypt.hashSync('123456789', 10),
 };
 
-const article = {
-    id: 8,
-    createdOn: new Date().toString(),
-    title: 'Title One',
-    article: 'Article contents. Article contents. Article contents. Article contents.',
-    authorId: 54,
-    comments: [{
-        id: 1,
-        authorId: 2,
-        comment: 'Nothing but G thing. Nothing but G thing. Nothing but G thing.',
-    }],
-    // eslint-disable-next-line newline-per-chained-call
-};
+const article = new Article(articles, 'Title One', 'Article contents. Article contents. Article contents. Article contents.', 1200);
 
 const token = jwt.sign({ id: user.id, access: 'auth' }, process.env.JWT_KEY, { expiresIn: '1h' }).toString();
 
@@ -50,11 +40,12 @@ describe('Article Controller', () => {
     });
 
     it('POST /api/v1/articles', () => {
-        chai.request(app).post('/api/v1/articles').send(article).set('Authorization', `Bear ${token}`).end((err, res) => {
-            expect(res.status).to.equals(201);
-            expect(res.body).to.be.an('object');
-            expect(res.body.message).to.be.a('string');
-        });
+        chai.request(app).post('/api/v1/articles').send(article).set('Authorization', `Bear ${token}`)
+            .end((err, res) => {
+                expect(res.status).to.equals(201);
+                expect(res.body).to.be.an('object');
+                expect(res.body.message).to.be.a('string');
+            });
     });
 
     it(`GET /api/v1/articles/${article.id}`, () => {

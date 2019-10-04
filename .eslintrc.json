@@ -28,7 +28,7 @@
         "no-console": 0,
         "eslint linebreak-style": [0, "error", "windows"],
         "eol-last": 0,
-        "no-restricted-syntax": ["error", "FunctionExpression", "WithStatement", "BinaryExpression[operator='in']"],
-        "consistent-return": 1
+        "max-len": 300,
+        "no-restricted-syntax": ["error", "WithStatement", "BinaryExpression[operator='in']"]
     }
 }
