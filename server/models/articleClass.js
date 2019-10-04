@@ -1,5 +1,5 @@
 import func from '../helpers/functions';
-
+import articles from './articleModel';
 class Article {
     constructor(articles, title, article, authorId) {
         this.id = func.idIncrementor(articles);
