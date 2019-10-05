@@ -10,6 +10,20 @@ const articleController = {
             data: articles,
         });
     },
+    getMyArticles: (req, res) => {
+        const ownArticles = articles.filter((article) => article === req.userData.id);
+        if (ownArticles) {
+            res.status(200).json({
+                status: 200,
+                message: 'Retrieved all articles',
+                data: articles,
+            });
+        }
+        return res.status(404).json({
+            status: 404,
+            message: 'You have no article yet',
+        });
+    },
     getArticle: (req, res) => {
         const id = func.toInteger(req.params.id);
         const article = func.idFinder(articles, id);

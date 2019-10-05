@@ -21,14 +21,6 @@ const userController = {
         const message = 'User created successfully';
 
         userFunc.jwtFunc(done, res, user.id, user.firstName, user.lastName, user.email, 201, message);
-        // if (done) {
-        //     const token = func.jwtSign(user.id, user.firstName, user.lastName, user.email);
-        //     return res.status(201).json({
-        //         status: 201,
-        //         message: 'User created successfully',
-        //         token,
-        //     });
-        // }
     },
     signIn: (req, res) => {
         const userAuth = {

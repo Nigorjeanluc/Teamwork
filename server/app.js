@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1', allRoutes);
 
 app.listen(port, () => {
-    console.log(`Server is running on (http://127.0.0.1:${port})`);
+    process.stdout.write(`Server is running on (http://127.0.0.1:${port})`);
 });
 
 export default app;
