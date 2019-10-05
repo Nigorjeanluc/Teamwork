@@ -228,6 +228,7 @@ header .header-cases {
 }
 
 main {
+    height: 100vh;
     background-color: #E5F2D0;
     padding-bottom: 20px;
 }
