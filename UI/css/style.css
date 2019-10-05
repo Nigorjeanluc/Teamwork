@@ -76,7 +76,9 @@ video {
     background: transparent;
 }
 
+html,
 body {
+    height: 100%;
     line-height: 1;
     background: rgb(214, 223, 199);
 }
@@ -227,10 +229,17 @@ header .header-cases {
     display: none;
 }
 
-main {
-    height: 100vh;
+.index-single {
+    height: 100%;
     background-color: #E5F2D0;
     padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.index-single::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .main-margin-bottom {
@@ -999,6 +1008,16 @@ main {
 */
 
 @media (min-width: 1281px) {
+    main {
+        height: auto;
+        background-color: #E5F2D0;
+        padding-bottom: 20px;
+    }
+    main::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
     .wrapper {
         width: 1000px;
         margin: 0 auto;
@@ -1118,6 +1137,28 @@ main {
   */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
+    .index-single {
+        height: 100%;
+        background-color: #E5F2D0;
+        padding-bottom: 20px;
+        overflow: hidden;
+    }
+    .index-single::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    main {
+        height: auto;
+        background-color: #E5F2D0;
+        padding-bottom: 20px;
+        overflow: hidden;
+    }
+    main::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
     .wrapper {
         width: 1000px;
         margin: 0 auto;
@@ -2621,7 +2662,6 @@ input.password {
 
 .vertical-center-register {
     margin-top: 80px;
-    margin-bottom: 50px;
 }
 
 .register-form-container {
