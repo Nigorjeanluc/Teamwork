@@ -1,5 +1,5 @@
 import articles from '../models/articleModel';
-import Article from '../helpers/articleClass';
+import Article from '../models/articleClass';
 import func from '../helpers/functions';
 
 const articleController = {
