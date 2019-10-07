@@ -12,6 +12,7 @@ const commentController = {
                 createdOn: new Date().toLocaleString(),
                 articleTitle: article.title,
                 article: article.article,
+                isInappropriate: false,
                 authorId: func.toInteger(req.userData.id),
                 comments: req.body.comment,
             };
@@ -25,9 +26,37 @@ const commentController = {
         }
         return res.status(404).json({
             status: 404,
-            message: 'Article does not exist',
+            error: 'Article does not exist',
         });
     },
+    patchInappropriate: (req, res) => {
+        const id = func.toInteger(req.params.id);
+        const commentId = func.toInteger(req.params.commentId);
+        const article = func.idFinder(articles, id);
+        const comment = func.idFinder(article.comments, commentId);
+        const inapproArticle = req.body.isInappropriate;
+        if (article != null) {
+            if (comment.id === commentId) {
+                comment.isInappropriate = inapproArticle || comment.isInappropriate;
+
+                return res.status(200).json({
+                    status: 200,
+                    message: 'Comment flagged as inappropriate',
+                    data: comment,
+                });
+            }
+
+            return res.status(404).json({
+                status: 404,
+                error: 'Comment does not exist',
+            });
+        }
+
+        return res.status(404).json({
+            status: 404,
+            error: 'Article does not exist',
+        });
+    }
 };
 
 export default commentController;
