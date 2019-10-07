@@ -32,7 +32,7 @@ const deleteAllTables = `
         employees, articles`;
 
 export default {
-    createUsersTable,
-    createArticlesTable,
-    deleteAllTables
+  createUsersTable,
+  createArticlesTable,
+  deleteAllTables
 };
