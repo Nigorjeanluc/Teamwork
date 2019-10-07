@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import User from '../models/userClass';
+import User from '../helpers/userClass';
 import users from '../models/userModel';
 
 const authValidation = {
@@ -14,10 +14,11 @@ const authValidation = {
             jobRole: Joi.string().min(4).label('Job Role').trim().required(),
             department: Joi.string().min(4).alphanum().label('Department').trim().required(),
             address: Joi.string().label('Address').min(4).trim().required(),
+            isAdmin: Joi.boolean(),
             password: Joi.string().label('Password').trim().required(),
         });
 
-        const user = new User(users, req.body.firstName, req.body.lastName, req.body.email, req.body.gender, req.body.jobRole, req.body.department, req.body.address, req.body.password);
+        const user = new User(req.body.firstName, req.body.lastName, req.body.email, req.body.gender, req.body.jobRole, req.body.department, req.body.address, req.body.password);
 
         const result = Joi.validate(user, Schema, {
             abortEarly: false
@@ -25,15 +26,14 @@ const authValidation = {
         const valid = result.error == null;
 
         if (valid) {
-            req.header('Content-Type', 'application/json');
             return next();
         } else {
             const details = result.error.details;
-            const message = details.map(i => i.message.replace('"', '').replace('"', '')).join(',');
+            const message = details.map(i => i.message.replace('"', '').replace('"', '')).join(', ');
 
             return res.status(422).json({
                 status: 422,
-                message,
+                error: message,
             });
         }
     },
@@ -62,7 +62,7 @@ const authValidation = {
 
             return res.status(422).json({
                 status: 422,
-                message,
+                error: message,
             });
         }
     }

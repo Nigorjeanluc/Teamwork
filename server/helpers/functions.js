@@ -12,21 +12,20 @@ const func = {
         for (let i = 0; i < length; i++) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
+        console.log(result);
         return result;
     },
     idFinder: (items, id) => items.find((item) => item.id === id),
     emailFinder: (items, email) => items.find((item) => item.email === email),
     idIncrementor: (arr) => arr.length + 1,
     toInteger: (id) => parseInt(id, 10),
-    jwtSign: (id, firstname, lastname, email) => jwt.sign({
+    jwtSign: (id, email) => jwt.sign({
         id,
-        firstName: firstname,
-        lastName: lastname,
         email,
     }, process.env.JWT_KEY, {
         expiresIn: '1h',
     }),
-    hashPassword: (password) => bcrypt.hash(password, 10, (err, hash) => hash),
+    hashPassword: (password) => bcrypt.hashSync(password, 10),
     comparePassword: (password, matchPassword) => bcrypt.compareSync(password, matchPassword),
 };
 

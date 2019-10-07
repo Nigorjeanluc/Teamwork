@@ -6,7 +6,6 @@ import userRoutes from './userRoutes';
 const router = express.Router();
 
 // Ensure that I prevent CORS errors
-// eslint-disable-next-line consistent-return
 router.use((req, res, next) => {
     // Provide access to any domain
     res.header('Access-Control-Allow-Origin', '*');

@@ -1,9 +1,9 @@
 import func from '../helpers/functions';
 
 const userFunc = {
-    jwtFunc: (condition, res, userId, userFirstname, userLastname, userEmail, httpCode, message) => {
+    jwtFunc: (condition, res, userId, userEmail, httpCode, message) => {
         if (condition) {
-            const token = func.jwtSign(userId, userFirstname, userLastname, userEmail);
+            const token = func.jwtSign(userId, userEmail);
             return res.status(httpCode).json({
                 status: httpCode,
                 message,
