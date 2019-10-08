@@ -6,7 +6,6 @@ import app from "../app";
 import func from "../v2/helpers/functions";
 
 const user = new User(
-  users,
   "Jean Jaures",
   "SIBOMANA",
   `${func.randomString(6)}@gmail.com`,
