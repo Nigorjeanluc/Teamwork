@@ -13,7 +13,8 @@ const commentController = {
                 articleTitle: article.title,
                 article: article.article,
                 authorId: func.toInteger(req.userData.id),
-                comments: req.body.comment,
+                isInappropriate: false,
+                comment: req.body.comment,
             };
 
             article.comments.push(comment);
