@@ -1,13 +1,15 @@
-import articles from '../models/articleModel';
+import pool from '../models/dbConnect';
+import allqueries from '../models/allqueries';
 import Article from '../models/articleClass';
 import func from '../helpers/functions';
 
 const articleController = {
-    getAllArticles: (req, res) => {
+    getAllArticles: async (req, res) => {
+        const articles = await pool.query(allqueries.getAllArticles);
         res.status(200).json({
             status: 200,
             message: 'Retrieved all articles',
-            data: articles,
+            data: articles.rows,
         });
     },
     getMyArticles: (req, res) => {

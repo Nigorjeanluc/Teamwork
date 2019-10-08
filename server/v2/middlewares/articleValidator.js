@@ -5,7 +5,7 @@ const articleValidation = {
     postValidator: (req, res, next) => {
         const Schema = Joi.object().keys({
             id: Joi.number().integer().required(),
-            createdOn: Joi.string().required(),
+            createdOn: Joi.date().required(),
             title: Joi.string().min(5).max(100).label('Title').required(),
             article: Joi.string().min(5).max(1000).label('Article').required(),
             authorId: Joi.number().allow().label('Author_id'),
