@@ -29,6 +29,13 @@ const article = new Article(
   1200
 );
 
+const invalidArticle = new Article(
+  "",
+  "Article contents. Article contents. Article contents. Article contents.",
+  "Fashion",
+  1200
+);
+
 articles.push(article);
 
 const token = jwt
@@ -39,8 +46,8 @@ const token = jwt
 
 chai.use(chaiHTTP);
 
-describe("Article Controller", () => {
-  it("GET /api/v1/feeds", () => {
+describe("GET /api/v1/feeds", () => {
+  it("should return all feeds in desc order", () => {
     chai
       .request(app)
       .get("/api/v1/feeds")
@@ -49,8 +56,35 @@ describe("Article Controller", () => {
         expect(res.status).to.equals(200);
       });
   });
+});
 
-  it("POST /api/v1/articles", () => {
+describe("POST /api/v1/articles", () => {
+  it("should not post an invalid article", () => {
+    chai
+      .request(app)
+      .post("/api/v1/articles")
+      .send(invalidArticle)
+      .set("Authorization", `Bear ${token}`)
+      .end((err, res) => {
+        expect(res.status).to.equals(422);
+        expect(res.body).to.be.an("object");
+        expect(res.body.error).to.be.a("string");
+      });
+  });
+
+  it("should not post an article from unauthenticated user", () => {
+    chai
+      .request(app)
+      .post("/api/v1/articles")
+      .send(article)
+      .end((err, res) => {
+        expect(res.status).to.equals(401);
+        expect(res.body).to.be.an("object");
+        expect(res.body.error).to.be.a("string");
+      });
+  });
+
+  it("should post new article", () => {
     chai
       .request(app)
       .post("/api/v1/articles")
@@ -62,8 +96,10 @@ describe("Article Controller", () => {
         expect(res.body.message).to.be.a("string");
       });
   });
+});
 
-  it(`GET /api/v1/articles/${article.id}`, () => {
+describe(`GET /api/v1/articles/${article.id}`, () => {
+  it('should return the tergeted article', () => {
     chai
       .request(app)
       .get(`/api/v1/articles/${article.id}`)
@@ -72,7 +108,9 @@ describe("Article Controller", () => {
         expect(res.status).to.equals(200);
       });
   });
+});
 
+describe(`GET /api/v1/articles/${article.id}/comments`, () => {
   it(`POST /api/v1/articles/${article.id}/comments`, () => {
     chai
       .request(app)

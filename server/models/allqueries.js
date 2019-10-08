@@ -19,7 +19,7 @@ const createArticlesTable = `
         articles(
           id SERIAL PRIMARY KEY,
           title VARCHAR(255) NOT NULL,
-          article VARCHAR(255) NOT NULL,
+          article TEXT NOT NULL,
           category VARCHAR(255) NOT NULL,
           isInappropriate VARCHAR(255) NOT NULL,
           authorId INT NOT NULL,
@@ -27,12 +27,24 @@ const createArticlesTable = `
           FOREIGN KEY (authorId) REFERENCES employees(id) ON DELETE CASCADE
 )`;
 
+const createCommentsTable = `
+    CREATE TABLE IF NOT EXISTS
+        comments(
+          id SERIAL PRIMARY KEY,
+          comment VARCHAR(255) NOT NULL,
+          isInappropriate VARCHAR(255) NOT NULL,
+          articleId INT NOT NULL,
+          createdOn timestamp without time zone,
+          FOREIGN KEY (articleId) REFERENCES articles(id) ON DELETE CASCADE
+)`;
+
 const deleteAllTables = `
     DROP TABLE IF EXISTS 
-        employees, articles`;
+        employees, articles, comments`;
 
 export default {
   createUsersTable,
   createArticlesTable,
+  createCommentsTable,
   deleteAllTables
 };
