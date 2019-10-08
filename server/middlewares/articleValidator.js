@@ -8,9 +8,9 @@ const articleValidation = {
             createdOn: Joi.string().required(),
             title: Joi.string().min(5).max(100).label('Title').required(),
             article: Joi.string().min(5).max(1000).label('Article').required(),
-            authorId: Joi.number().required(),
+            authorId: Joi.number().allow().label('Author_id'),
             category: Joi.string().min(2).max(20).alphanum().label('Catedory').trim().required(),
-            isInappropriate: Joi.boolean().label('Appropriate').allow(),
+            isInappropiate: Joi.boolean().label('Appropriate').required(),
             comments: Joi.required(),
         });
 

@@ -57,7 +57,7 @@ const articleController = {
     },
     postArticle: (req, res) => {
         const id = func.toInteger(req.userData.id);
-        const article = new Article(articles, req.body.title, req.body.article, id);
+        const article = new Article(req.body.title, req.body.article, req.body.category, id);
 
         articles.push(article);
         res.status(201).json({
