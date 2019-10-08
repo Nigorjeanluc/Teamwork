@@ -7,8 +7,9 @@ dotenv.config();
 const addTables = async () => {
   await pool.query(addTable.createUsersTable);
   await pool.query(addTable.createArticlesTable);
+  await pool.query(addTable.createCommentsTable);
   process.stdout.write(
-    "Two Tables (employees and articles) created successfully\n"
+    "Three Tables (employees ,articles and comments) created successfully\n"
   );
 };
 

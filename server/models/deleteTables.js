@@ -3,7 +3,7 @@ import delTable from './allqueries';
 
 const deleteTables = async() => {
     await pool.query(delTable.deleteAllTables);
-    process.stdout.write('Two Tables (employees and articles) tables. Deleted successfully\n');
+    process.stdout.write('Three Tables (employees ,articles and comments) tables. Deleted successfully\n');
 };
 
 (async() => {
