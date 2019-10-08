@@ -33,10 +33,6 @@ describe('Article Controller', () => {
         chai.request(app).get('/api/v1/feeds').set('Authorization', `Bear ${token}`).end((err, res) => {
             expect(res.status).to.equals(200);
         });
-        // expect({ id: 1 }).to.be.an('object');
-        // eslint-disable-next-line no-unused-expressions
-        // expect([2, 3]).to.be.empty;
-        // expect(1).to.equals(1);
     });
 
     it('POST /api/v1/articles', () => {
@@ -52,10 +48,6 @@ describe('Article Controller', () => {
         chai.request(app).get(`/api/v1/articles/${article.id}`).set('Authorization', `Bear ${token}`).end((err, res) => {
             expect(res.status).to.equals(200);
         });
-        // expect({ id: 1 }).to.be.an('object');
-        // eslint-disable-next-line no-unused-expressions
-        // expect([2, 3]).to.be.empty;
-        // expect(1).to.equals(1);
     });
 
     it(`POST /api/v1/articles/${article.id}/comments`, () => {
@@ -63,9 +55,7 @@ describe('Article Controller', () => {
                 id: article.comments.length + 1,
                 articleId: 1,
                 createdOn: new Date().toLocaleString(),
-                // eslint-disable-next-line max-len
                 articleTitle: article.title,
-                // eslint-disable-next-line max-len
                 article: article.article,
                 authorId: 10,
                 comments: 'New comment. New comment. New comment. New comment. New comment.',
@@ -73,10 +63,6 @@ describe('Article Controller', () => {
             .end((err, res) => {
                 expect(res.status).to.equals(201);
             });
-        // expect({ id: 1 }).to.be.an('object');
-        // eslint-disable-next-line no-unused-expressions
-        // expect([2, 3]).to.be.empty;
-        // expect(1).to.equals(1);
     });
 
     it(`PATCH /api/v1/articles/${article.id}`, () => {
@@ -84,19 +70,11 @@ describe('Article Controller', () => {
             .end((err, res) => {
                 expect(res.status).to.equals(200);
             });
-        // expect({ id: 1 }).to.be.an('object');
-        // eslint-disable-next-line no-unused-expressions
-        // expect([2, 3]).to.be.empty;
-        // expect(1).to.equals(1);
     });
 
     it(`DELETE /api/v1/articles/${article.id}`, () => {
         chai.request(app).delete(`/api/v1/articles/${article.id}`).set('Authorization', `Bear ${token}`).end((err, res) => {
             expect(res.status).to.equals(204);
         });
-        // expect({ id: 1 }).to.be.an('object');
-        // eslint-disable-next-line no-unused-expressions
-        // expect([2, 3]).to.be.empty;
-        // expect(1).to.equals(1);
     });
 });
