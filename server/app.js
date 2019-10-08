@@ -1,7 +1,7 @@
-import express from 'express';
-import dotenv from 'dotenv';
+import express from "express";
+import dotenv from "dotenv";
 
-import allRoutes from './routes/allRoutes';
+import allRoutes from "./v2/routes/allRoutes";
 
 dotenv.config();
 
@@ -12,10 +12,10 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api/v1', allRoutes);
+app.use("/api/v1", allRoutes);
 
 app.listen(port, () => {
-    process.stdout.write(`Server is running on (http://127.0.0.1:${port})\n`);
+  process.stdout.write(`Server is running on (http://127.0.0.1:${port})\n`);
 });
 
 export default app;

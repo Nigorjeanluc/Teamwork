@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "nyc --reporter=text --reporter=lcov mocha --require @babel/register server/tests/ --exit",
-        "createtables": "node --require babel-polyfill --require @babel/register server/models/addTables",
-        "droptables": "node --require babel-polyfill --require @babel/register server/models/deleteTables",
+        "createtables": "node --require babel-polyfill --require @babel/register server/v2/models/addTables",
+        "droptables": "node --require babel-polyfill --require @babel/register server/v2/models/deleteTables",
         "start": "node ./dist/app",
         "dev": "nodemon --exec babel-node server/app",
         "coveralls": "npm test && nyc report --reporter=text-lcov | coveralls",
