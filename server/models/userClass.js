@@ -11,7 +11,7 @@ class User {
         this.jobRole = jobRole;
         this.department = department;
         this.address = address;
-        this.password = func.hashPassword(password);
+        this.password = password;
     }
 }
 

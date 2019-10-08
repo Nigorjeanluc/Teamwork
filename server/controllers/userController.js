@@ -16,6 +16,8 @@ const userController = {
             });
         }
 
+        user.password = func.hashPassword(req.body.password);
+
         const done = users.push(user);
 
         const message = 'User created successfully';
