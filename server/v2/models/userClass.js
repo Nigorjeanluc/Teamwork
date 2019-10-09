@@ -1,9 +1,5 @@
-import func from '../helpers/functions';
-import users from '../models/userModel';
-
 class User {
     constructor(firstName, lastName, email, gender, jobRole, department, address, password) {
-        this.id = func.idIncrementor(users);
         this.createdOn = new Date();
         this.firstName = firstName;
         this.lastName = lastName;

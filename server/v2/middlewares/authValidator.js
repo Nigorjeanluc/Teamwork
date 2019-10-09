@@ -1,10 +1,9 @@
 import Joi from 'joi';
 import User from '../models/userClass';
 
-const authValidation = {
-    signupValidator: (req, res, next) => {
+class AuthValidation {
+    static signupValidator (req, res, next) {
         const Schema = Joi.object().keys({
-            id: Joi.number().integer().required(),
             createdOn: Joi.date().required(),
             firstName: Joi.string().min(3).max(40).label('First Name').trim().required(),
             lastName: Joi.string().min(3).max(40).label('Last Name').trim().required(),
@@ -36,8 +35,9 @@ const authValidation = {
                 error: message,
             });
         }
-    },
-    signinValidator: (req, res, next) => {
+    }
+
+    static signinValidator (req, res, next) {
         const Schema = Joi.object().keys({
             email: Joi.string().email({ minDomainAtoms: 2 }).label('Email').trim().required(),
             password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).label('Password').trim().required(),
@@ -67,4 +67,4 @@ const authValidation = {
     }
 }
 
-export default authValidation;
+export default AuthValidation;

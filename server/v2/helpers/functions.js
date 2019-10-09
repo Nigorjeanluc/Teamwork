@@ -5,8 +5,8 @@ import pool from '../models/dbConnect';
 
 dotenv.config();
 
-const func = {
-    randomString: (length) => {
+class func {
+    static randomString (length) {
         let result = '';
         const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
         const charactersLength = characters.length;
@@ -14,22 +14,43 @@ const func = {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
         return result;
-    },
-    idFinder: (items, id) => items.find((item) => item.id === id),
-    emailFinder: (items, email) => items.find((item) => item.email === email),
-    idIncrementor: (arr) => arr.length + 1,
-    toInteger: (id) => parseInt(id, 10),
-    jwtSign: (id, firstname, lastname, email) => jwt.sign({
-        id,
-        firstName: firstname,
-        lastName: lastname,
-        email,
-    }, process.env.JWT_KEY, {
-        expiresIn: '1h',
-    }),
-    hashPassword: (password) => bcrypt.hashSync(password, 10),
-    comparePassword: (password, matchPassword) => bcrypt.compareSync(password, matchPassword),
-    execQuery: (query) => {
+    }
+
+    static idFinder (items, id) {
+        items.find((item) => item.id === id);
+    }
+
+    static emailFinder (items, email) {
+        items.find((item) => item.email === email);
+    }
+
+    static idIncrementor (arr) {
+        arr.length + 1;
+    }
+
+    static toInteger (id) {
+        parseInt(id, 10)
+    }
+    static jwtSign (id, email) {
+        const done = jwt.sign({
+            id,
+            email,
+        }, process.env.JWT_KEY, {
+            expiresIn: '1h',
+        });
+
+        return done;
+    }
+
+    static async hashPassword (password) {
+        bcrypt.hashSync(password, 10)
+    }
+
+    static async comparePassword (password, matchPassword) {
+        bcrypt.compareSync(password, matchPassword)
+    }
+
+    static async execQuery (query) {
         (async () => {
             await pool.query(query);
           })().catch(error => process.stdout.write(`${error}\n`));

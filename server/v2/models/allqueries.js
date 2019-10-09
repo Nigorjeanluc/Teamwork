@@ -46,7 +46,7 @@ const insertEmployee = `
     INSERT INTO 
         employees (firstName, lastName, email, gender, jobRole, department, address, isAdmin, password, createdOn)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
-    RETURNING firstName, lastName, email, gender, jobRole, department, address, isAdmin, password, createdOn`;
+    RETURNING id, firstName, lastName, email, gender, jobRole, department, address, isAdmin, password, createdOn`;
 
 const getAllEmployees = `SELECT * FROM employees`;
 
