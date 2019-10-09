@@ -7,9 +7,16 @@ const userFunc = {
             return res.status(httpCode).json({
                 status: httpCode,
                 message,
-                token,
+                data: {
+                    token,
+                }
             });
         }
+
+        return res.status(401).json({
+            status: 401,
+            error: 'Wrong password',
+        });
     },
 }
 

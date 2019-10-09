@@ -5,10 +5,10 @@ import pool from '../models/dbConnect';
 import allqueries from '../models/allqueries';
 
 const userController = {
-    signUp: async (req, res) => {
+    signUp: async(req, res) => {
         const user = new User(req.body.firstName, req.body.lastName, req.body.email, req.body.gender, req.body.jobRole, req.body.department, req.body.address, req.body.password);
 
-        const alreadyUser = await pool.query(allqueries.getAnEmployee,[user.email]);
+        const alreadyUser = await pool.query(allqueries.getAnEmployee, [user.email, user.password]);
 
         if (alreadyUser.rows[0]) {
             return res.status(422).json({
@@ -35,27 +35,24 @@ const userController = {
 
         userFunc.jwtFunc(done.rows[0], res, user.id, user.firstName, user.lastName, user.email, 201, message);
     },
-    signIn: async (req, res) => {
+    signIn: async(req, res) => {
         const userAuth = {
             email: req.body.email,
             password: req.body.password,
         };
 
-        const alreadyUser = await pool.query(allqueries.getAnEmployee, [userAuth.email]);
+        const alreadyUser = await pool.query(allqueries.getAnEmployee, [userAuth.email, userAuth.password])
+            .catch(err => process.stdout.write('Error executing query\n', err.stack));
+        const result = func.comparePassword(userAuth.password, alreadyUser.rows[0].password);
+        console.log(alreadyUser);
 
-        if (alreadyUser.rows[0]) {
-            const result = func.comparePassword(userAuth.password, alreadyUser.rows[0].password);
+        if (alreadyUser.rows[0] && result) {
             const message = 'User is successfully logged in';
             userFunc.jwtFunc(result, res, alreadyUser.rows[0].id, alreadyUser.rows[0].firstName, alreadyUser.rows[0].lastName, alreadyUser.rows[0].email, 200, message);
-
-            return res.status(401).json({
-                status: 401,
-                message: 'Wrong password',
-            });
         }
         return res.status(401).json({
             status: 401,
-            message: 'Auth failed',
+            error: 'Auth failed',
         });
     },
 };

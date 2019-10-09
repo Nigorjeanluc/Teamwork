@@ -5,64 +5,88 @@ import app from "../app";
 import func from "../v2/helpers/functions";
 
 const user = new User(
-  "Jean Jaures",
-  "SIBOMANA",
-  `${func.randomString(6)}@gmail.com`,
-  "Male",
-  "Learning Facilitator",
-  "Department",
-  "KG 54 Kibagabaga",
-  "123456789"
+    "Jean Jaures",
+    "SIBOMANA",
+    `${func.randomString(6)}@gmail.com`,
+    "Male",
+    "Learning Facilitator",
+    "Department",
+    "KG 54 Kibagabaga",
+    "123456789"
 );
 
 const invalidUser = new User(
-  "",
-  "SIBOMANA",
-  `${func.randomString(6)}@gmail.com`,
-  "Male",
-  "Learning Facilitator",
-  "Department",
-  "KG 54 Kibagabaga",
-  "123456789"
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
 );
 
 chai.use(chaiHTTP);
 
 describe("POST /api/v1/auth/signup", () => {
-  it("if user enter invalid firstname", () => {
-    chai
-      .request(app)
-      .post("/api/v1/auth/signup")
-      .send(user)
-      .end((err, res) => {
-        expect(res.status).to.equals(422);
-        expect(res.body).to.be.an("object");
-        expect(res.body.error).to.be.a("string");
-      });
-  });
-  it("POST /api/v1/auth/signup", () => {
-    chai
-      .request(app)
-      .post("/api/v1/auth/signup")
-      .send(user)
-      .end((err, res) => {
-        expect(res.status).to.equals(201);
-        expect(res.body).to.be.an("object");
-        expect(res.body.token).to.be.a("string");
-      });
-  });
+    it("should check if user enter invalid field", () => {
+        chai
+            .request(app)
+            .post("/api/v1/auth/signup")
+            .send(invalidUser)
+            .end((err, res) => {
+                expect(res.status).to.equals(422);
+                expect(res.body).to.be.an("object");
+                expect(res.body.error).to.be.a("string");
+            });
+    });
+    it("should ensure that user with valid ", () => {
+        chai
+            .request(app)
+            .post("/api/v1/auth/signup")
+            .send(user)
+            .end((err, res) => {
+                expect(res.status).to.equals(201);
+                expect(res.body).to.be.an("object");
+                expect(res.body.data).to.be.an("object");
+                expect(res.body.data.token).to.be.a("string");
+            });
+    });
 });
 
-describe("User Controller", () => {
-  it("POST /api/v1/auth/signin", () => {
-    chai
-      .request(app)
-      .post("/api/v1/auth/signin")
-      .send({ email: user.email, password: `${user.password}` })
-      .end((err, res) => {
-        expect(res.status).to.equals(200);
-        expect(res.body).to.be.an("object");
-        expect(res.body.token).to.be.a("string");
-      });
-  });
+describe("POST /api/v1/auth/signin", () => {
+    it("should sign in user with valid credentials", () => {
+        chai
+            .request(app)
+            .post("/api/v1/auth/signin")
+            .send({ email: user.email, password: `${user.password}` })
+            .end((err, res) => {
+                expect(res.status).to.equals(200);
+                expect(res.body).to.be.an("object");
+                expect(res.body.data).to.be.an("object");
+                expect(res.body.data.token).to.be.a("string");
+            });
+    });
+    it("should not sign in user with invalid credentials but stored in the db", () => {
+        chai
+            .request(app)
+            .post("/api/v1/auth/signin")
+            .send({ email: user.email, password: `gjghjgj${user.password}454` })
+            .end((err, res) => {
+                expect(res.status).to.be.equals(401);
+                expect(res.status).to
+                expect(res.body.error).to.be.a("string");
+            });
+    });
+    it("should not sign in user with valid but not stored in the db", () => {
+        chai
+            .request(app)
+            .post("/api/v1/auth/signin")
+            .send({ email: `jauresgmail.com`, password: `${user.password}` })
+            .end((err, res) => {
+                expect(res.status).to.equals(422);
+                expect(res.body).to.be.an("object");
+                expect(res.body.error).to.be.a("string");
+            });
+    });
 });

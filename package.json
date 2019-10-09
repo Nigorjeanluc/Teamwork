@@ -4,7 +4,7 @@
     "description": "TeamWork project for workmate collaboration",
     "main": "index.js",
     "scripts": {
-        "test": "npm run createtables && cross-env NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --require babel-polyfill --require @babel/register server/tests/user.spec.js --exit",
+        "test": "npm run createtables && cross-env NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --require babel-polyfill --require @babel/register server/tests/user.spec.js  && npm run droptables --exit",
         "createtables": "node --require babel-polyfill --require @babel/register server/v2/models/addTables",
         "droptables": "node --require babel-polyfill --require @babel/register server/v2/models/deleteTables",
         "start": "node ./dist/app",
