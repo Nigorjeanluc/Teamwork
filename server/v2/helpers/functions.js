@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import pool from '../models/dbConnect';
 
 dotenv.config();
 
@@ -28,6 +29,11 @@ const func = {
     }),
     hashPassword: (password) => bcrypt.hashSync(password, 10),
     comparePassword: (password, matchPassword) => bcrypt.compareSync(password, matchPassword),
+    execQuery: (query) => {
+        (async () => {
+            await pool.query(query);
+          })().catch(error => process.stdout.write(`${error}\n`));
+    }
 };
 
 export default func;

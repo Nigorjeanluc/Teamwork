@@ -1,5 +1,6 @@
 import pool from "./dbConnect";
 import addTable from "./allqueries";
+import func from '../helpers/functions'
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -13,8 +14,6 @@ const addTables = async () => {
   );
 };
 
-(async () => {
-  await pool.query(addTables);
-})().catch(error => process.stdout.write(`${error}\n`));
+func.execQuery(addTables);
 
 export default addTables;
