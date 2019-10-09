@@ -54,19 +54,26 @@ class UserController {
       password: req.body.password
     };
 
-    await pool.query(allqueries.getAnEmployee, [
+    const result = await pool.query(allqueries.getAnEmployee, [
       userAuth.email
     ]).then((result) => {
-      if (result.rows[0].id) {
-        const message = "User is successfully logged in";
-        const token = func.jwtSign(result.rows[0].id, result.rows[0].email);
-        return res.status(200).json({
-            status: 200,
-            message,
-            data: {
-                token,
-            }
-        });
+      if (result.rows.length !== 0) {
+        if (func.comparePassword(userAuth.password, result.rows[0].password)) {
+          const message = "User is successfully logged in";
+          const token = func.jwtSign(result.rows[0].id, result.rows[0].email);
+          return res.status(200).json({
+              status: 200,
+              message,
+              data: {
+                  token,
+              }
+          });
+        } else {
+          return res.status(422).json({
+            status: 422,
+            error: "Wrong password"
+          });
+        }
       } else {
         return res.status(401).json({
           status: 401,
@@ -74,10 +81,10 @@ class UserController {
         });
       }
     }).catch(err => {
-      console.log('query error', e.message, e.stack);
+      console.log('query error', err.message, err.stack);
       const message = "Query error";
-      return res.status(201).json({
-          status: 201,
+      return res.status(401).json({
+          status: 401,
           message,
           error: err.message
       });

@@ -46,8 +46,8 @@ class func {
         bcrypt.hashSync(password, 10)
     }
 
-    static async comparePassword (password, matchPassword) {
-        bcrypt.compareSync(password, matchPassword)
+    static comparePassword (password, matchPassword) {
+        return bcrypt.compareSync(password, matchPassword)
     }
 
     static async execQuery (query) {
