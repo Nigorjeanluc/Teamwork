@@ -69,8 +69,8 @@ class UserController {
               }
           });
         } else {
-          return res.status(422).json({
-            status: 422,
+          return res.status(401).json({
+            status: 401,
             error: "Wrong password"
           });
         }
