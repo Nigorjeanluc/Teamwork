@@ -1,5 +1,6 @@
 import pool from './dbConnect';
 import delTable from './allqueries';
+import func from '../helpers/functions';
 
 const deleteTables = async() => {
     await pool.query(delTable.deleteAllTables);
