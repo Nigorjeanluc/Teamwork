@@ -11,12 +11,12 @@ const userFunc = {
                     token,
                 }
             });
+        } else {
+            return res.status(401).json({
+                status: 401,
+                error: 'Wrong password',
+            });
         }
-
-        return res.status(401).json({
-            status: 401,
-            error: 'Wrong password',
-        });
     },
 }
 

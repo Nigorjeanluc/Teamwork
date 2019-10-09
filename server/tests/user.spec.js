@@ -9,7 +9,7 @@ const user = new User(
     "SIBOMANA",
     `${func.randomString(6)}@gmail.com`,
     "Male",
-    "Learning Facilitator",
+    "Facilitator",
     "Department",
     "KG 54 Kibagabaga",
     "123456789"
@@ -74,7 +74,7 @@ describe("POST /api/v1/auth/signin", () => {
             .send({ email: user.email, password: `gjghjgj${user.password}454` })
             .end((err, res) => {
                 expect(res.status).to.be.equals(401);
-                expect(res.status).to
+                expect(res.body).to.be.an("object");
                 expect(res.body.error).to.be.a("string");
             });
     });

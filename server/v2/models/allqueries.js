@@ -52,15 +52,15 @@ const getAllEmployees = `SELECT * FROM employees`;
 
 const getAllArticles = `SELECT * FROM articles ORDER BY id DESC`;
 
-const getAnEmployee = `SELECT * FROM employees WHERE email = $1 OR password = $2`;
+const getAnEmployee = `SELECT * FROM employees WHERE email = $1`;
 
 export default {
-    createUsersTable,
-    createArticlesTable,
-    createCommentsTable,
-    deleteAllTables,
-    insertEmployee,
-    getAllEmployees,
-    getAllArticles,
-    getAnEmployee
+  createUsersTable,
+  createArticlesTable,
+  createCommentsTable,
+  deleteAllTables,
+  insertEmployee,
+  getAllEmployees,
+  getAllArticles,
+  getAnEmployee
 };
