@@ -3,16 +3,16 @@ import allqueries from '../models/allqueries';
 import Article from '../models/articleClass';
 import func from '../helpers/functions';
 
-const articleController = {
-    getAllArticles: async (req, res) => {
+class articleController {
+    static async getAllArticles (req, res) {
         const articles = await pool.query(allqueries.getAllArticles);
         res.status(200).json({
             status: 200,
             message: 'Retrieved all articles',
             data: articles.rows,
         });
-    },
-    getMyArticles: (req, res) => {
+    }
+    static async getMyArticles (req, res) {
         const ownArticles = articles.filter((article) => article === req.userData.id);
         if (ownArticles) {
             res.status(200).json({
@@ -25,8 +25,8 @@ const articleController = {
             status: 404,
             message: 'You have no article yet',
         });
-    },
-    getArticle: (req, res) => {
+    }
+    static async getArticle (req, res) {
         const id = func.toInteger(req.params.id);
         const article = func.idFinder(articles, id);
         if (article) {
@@ -40,8 +40,8 @@ const articleController = {
             status: 404,
             message: 'Article does not exist',
         });
-    },
-    deleteArticle: (req, res) => {
+    }
+    static async deleteArticle (req, res) {
         const id = func.toInteger(req.params.id);
         const article = func.idFinder(articles, id);
 
@@ -56,8 +56,8 @@ const articleController = {
             status: 404,
             message: 'Article does not exist',
         });
-    },
-    postArticle: (req, res) => {
+    }
+    static async postArticle (req, res) {
         const id = func.toInteger(req.userData.id);
         const article = new Article(req.body.title, req.body.article, req.body.category, id);
 
@@ -67,8 +67,8 @@ const articleController = {
             message: 'article created successfully',
             data: article,
         });
-    },
-    patchArticle: (req, res) => {
+    }
+    static async patchArticle (req, res) {
         const id = func.toInteger(req.params.id);
         const article = func.idFinder(articles, id);
         const updatedArticle = req.body;
@@ -88,7 +88,7 @@ const articleController = {
             status: 404,
             message: 'Article does not exist',
         });
-    },
+    }
 };
 
 export default articleController;
