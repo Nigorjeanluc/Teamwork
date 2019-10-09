@@ -67,12 +67,12 @@ class UserController {
                 token,
             }
         });
+      } else {
+        return res.status(401).json({
+          status: 401,
+          error: "Auth failed"
+        });
       }
-
-      return res.status(401).json({
-        status: 401,
-        error: "Auth failed"
-      });
     }).catch(err => {
       console.log('query error', e.message, e.stack);
       const message = "Query error";
