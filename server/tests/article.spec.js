@@ -4,8 +4,8 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import app from "../app";
-import Article from "../models/articleClass";
-import articles from "../models/articleModel";
+import Article from "../v2/models/articleClass";
+import articles from "../v2/models/articleModel";
 
 dotenv.config();
 
@@ -99,7 +99,7 @@ describe("POST /api/v1/articles", () => {
 });
 
 describe(`GET /api/v1/articles/${article.id}`, () => {
-  it('should return the tergeted article', () => {
+  it("should return the tergeted article", () => {
     chai
       .request(app)
       .get(`/api/v1/articles/${article.id}`)

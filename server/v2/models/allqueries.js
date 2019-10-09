@@ -42,9 +42,25 @@ const deleteAllTables = `
     DROP TABLE IF EXISTS 
         employees, articles, comments`;
 
+const insertEmployee = `
+    INSERT INTO 
+        employees (firstName, lastName, email, gender, jobRole, department, address, isAdmin, password, createdOn)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+    RETURNING id, firstName, lastName, email, gender, jobRole, department, address, isAdmin, password, createdOn`;
+
+const getAllEmployees = `SELECT * FROM employees`;
+
+const getAllArticles = `SELECT * FROM articles ORDER BY id DESC`;
+
+const getAnEmployee = `SELECT * FROM employees WHERE email = $1`;
+
 export default {
   createUsersTable,
   createArticlesTable,
   createCommentsTable,
-  deleteAllTables
+  deleteAllTables,
+  insertEmployee,
+  getAllEmployees,
+  getAllArticles,
+  getAnEmployee
 };
