@@ -669,6 +669,10 @@ gh-pages
     color: #040F3D;
 }
 
+.index-links {
+    padding-bottom: 10px;
+}
+
 .index-links div {
     margin: auto;
     margin-top: 20px;
@@ -695,10 +699,9 @@ gh-pages
     resize: vertical;
     border-radius: 20px;
     font-family: Catamaran;
-    height: 60px;
+    height: 150px;
     font-size: 16px;
     line-height: 28px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
 }
 
 .index-links button {
@@ -740,6 +743,10 @@ gh-pages
     color: #040F3D;
     text-align: center;
     text-transform: uppercase;
+}
+
+.index-title {
+    margin-top: 10px;
 }
 
 .index-title div h3 {
@@ -1080,7 +1087,7 @@ gh-pages
         font-style: oblique;
     }
     .index-links .index-text {
-        margin-bottom: 0px;
+        margin-bottom: 10px;
     }
     .index-links {
         overflow: inherit;
@@ -2791,7 +2798,7 @@ gh-pages
         resize: vertical;
         border-radius: 20px;
         font-family: Catamaran;
-        height: 60px;
+        height: 100px;
         font-size: 16px;
         line-height: 28px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);

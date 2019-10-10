@@ -5,7 +5,7 @@ import app from '../app';
 import func from '../helpers/functions';
 
 
-const user = new User('Jean Jaures', 'SIBOMANA', `${func.randomString(6)}@gmail.com`, 'Male', 'CEO', 'KG 54 Kibagabaga', '123456789');
+const user = new User(users, 'Jean Jaures', 'SIBOMANA', `${func.randomString(6)}@gmail.com`, 'Male', 'Learning Facilitator', 'Department', 'KG 54 Kibagabaga', '123456789');
 
 
 chai.use(chaiHTTP);
@@ -24,7 +24,6 @@ describe('User Controller', () => {
             expect(res.status).to.equals(200);
             expect(res.body).to.be.an('object');
             expect(res.body.token).to.be.a('string');
-            console.log(res.body.token);
         });
     });
 });

@@ -7,13 +7,13 @@ const authValidation = {
         const Schema = Joi.object().keys({
             id: Joi.number().integer().required(),
             createdOn: Joi.string().required(),
-            firstName: Joi.string().min(3).max(40).required().label('First Name').empty(/\s+/).trim(),
-            lastName: Joi.string().min(3).max(40).required().label('First Name').empty(/\s+/).trim(),
+            firstName: Joi.string().min(3).max(40).label('First Name').trim().required(),
+            lastName: Joi.string().min(3).max(40).label('First Name').trim().required(),
             email: Joi.string().email({ minDomainAtoms: 2 }).label('Email').trim().required(),
-            gender: Joi.string().min(4).max(6).alphanum().label('Gender').trim().required(),
+            gender: Joi.string().min(4).max(6).label('Gender').trim().required(),
             jobRole: Joi.string().min(4).label('Job Role').trim().required(),
-            department: Joi.string().min(4).alphanum().label('Department').trim().required(),
-            address: Joi.string().label('Address').min(4).trim().required(),
+            department: Joi.string().min(4).label('Department').trim().required(),
+            address: Joi.string().label('Address').min(4).required(),
             password: Joi.string().label('Password').trim().required(),
         });
 
@@ -33,7 +33,7 @@ const authValidation = {
 
             return res.status(422).json({
                 status: 422,
-                message,
+                error: message,
             });
         }
     },
@@ -62,7 +62,7 @@ const authValidation = {
 
             return res.status(422).json({
                 status: 422,
-                message,
+                error: message,
             });
         }
     }
