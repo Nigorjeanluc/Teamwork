@@ -185,9 +185,8 @@ class ArticleController {
                     });
                 });
             } else {
-                return res.status(405).json({
-                    status: 405,
-                    message,
+                return res.status(403).json({
+                    status: 403,
                     error: "You are not allowed to delete this article"
                 });
             }

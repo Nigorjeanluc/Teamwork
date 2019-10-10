@@ -22,7 +22,7 @@ router.use((req, res, next) => {
 
 
 router.use(articleRoutes);
-// router.use(commentRoutes);
+router.use(commentRoutes);
 router.use(userRoutes);
 
 export default router;

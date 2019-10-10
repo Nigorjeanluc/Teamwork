@@ -34,9 +34,10 @@ const createCommentsTable = `
           id SERIAL PRIMARY KEY,
           comment VARCHAR(255) NOT NULL,
           isInappropriate VARCHAR(255) NOT NULL,
+          authorId INT NOT NULL,
           articleId INT NOT NULL,
           createdOn timestamp without time zone,
-          FOREIGN KEY (articleId) REFERENCES articles(id) ON DELETE CASCADE
+          FOREIGN KEY (articleId) REFERENCES articles(id) ON DELETE CASCADE UPDATE CASCADE NSERT CASCADE
 )`;
 
 const deleteAllTables = `
@@ -54,6 +55,12 @@ const insertArticle = `
         articles (title, article, category, isInappropriate, authorId, createdOn, updatedOn)
     VALUES ($1, $2, $3, $4, $5, $6, $7)
     RETURNING id, title, article, category, isInappropriate, authorId, createdOn, updatedOn`;
+
+const insertComment =  `
+    INSERT INTO 
+        comments (comment, isInappropriate, authorId, articleId, createdOn)
+    VALUES ($1, $2, $3, $4, $5)
+    RETURNING *`;
 
 const getAllEmployees = `SELECT * FROM employees`;
 
@@ -78,6 +85,7 @@ export default {
   deleteAllTables,
   insertEmployee,
   insertArticle,
+  insertComment,
   updateArticle,
   deleteArticle,
   getAllEmployees,
