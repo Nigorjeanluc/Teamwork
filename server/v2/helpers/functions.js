@@ -29,7 +29,7 @@ class func {
     }
 
     static toInteger (id) {
-        parseInt(id, 10)
+        return parseInt(id, 10);
     }
     static jwtSign (id, email) {
         const done = jwt.sign({
@@ -42,8 +42,8 @@ class func {
         return done;
     }
 
-    static async hashPassword (password) {
-        bcrypt.hashSync(password, 10)
+    static hashPassword (password) {
+        return bcrypt.hashSync(password, 10)
     }
 
     static comparePassword (password, matchPassword) {

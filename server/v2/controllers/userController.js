@@ -39,10 +39,10 @@ class UserController {
           }
       });
     }).catch(err => {
-      console.log('query error', e.message, e.stack);
+      console.log('query error', err.message, err.stack);
       const message = "Query error";
-      return res.status(201).json({
-          status: 201,
+      return res.status(422).json({
+          status: 422,
           message,
           error: err.message
       });
@@ -57,7 +57,7 @@ class UserController {
     const result = await pool.query(allqueries.getAnEmployee, [
       userAuth.email
     ]).then((result) => {
-      if (result.rows.length !== 0) {
+      if (result.rows[0].length !== 0) {
         if (func.comparePassword(userAuth.password, result.rows[0].password)) {
           const message = "User is successfully logged in";
           const token = func.jwtSign(result.rows[0].id, result.rows[0].email);
@@ -84,7 +84,7 @@ class UserController {
       console.log('query error', err.message, err.stack);
       const message = "Query error";
       return res.status(401).json({
-          status: 401,
+          status: 422,
           message,
           error: err.message
       });
