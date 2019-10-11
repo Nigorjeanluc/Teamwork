@@ -1,56 +1,56 @@
 {
-  "name": "teamwork",
-  "version": "1.0.0",
-  "description": "TeamWork project for workmate collaboration",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm run droptables && npm run createtables && cross-env NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --require babel-polyfill --require @babel/register server/v2/tests/user.spec.js --exit",
-    "createtables": "node --require babel-polyfill --require @babel/register server/v2/models/addTables",
-    "droptables": "node --require babel-polyfill --require @babel/register server/v2/models/deleteTables",
-    "start": "babel-node server/app",
-    "dev": "nodemon --exec babel-node server/app",
-    "coveralls": "npm test && nyc report --reporter=text-lcov | coveralls",
-    "build": "babel server -d dist",
-    "lint": "eslint server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nigorjeanluc/Teamwork.git"
-  },
-  "author": "Igor Jean-Luc Ndiramiye",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Nigorjeanluc/Teamwork/issues"
-  },
-  "homepage": "https://github.com/Nigorjeanluc/Teamwork#readme",
-  "dependencies": {
-    "@babel/register": "^7.6.2",
-    "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
-    "@babel/node": "^7.6.1",
-    "@babel/preset-env": "^7.6.0",
-    "babel-polyfill": "^6.26.0",
-    "bcrypt": "^3.0.6",
-    "body-parser": "^1.19.0",
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "dotenv": "^8.1.0",
-    "express": "^4.17.1",
-    "joi": "^14.3.1",
-    "jsonwebtoken": "^8.5.1",
-    "make-runnable": "^1.3.6",
-    "mocha": "^6.2.0",
-    "pg": "^7.12.1",
-    "nodemon": "^1.19.2",
-    "supertest": "^4.0.2"
-  },
-  "devDependencies": {
-    "coveralls": "^3.0.6",
-    "cross-env": "^6.0.3",
-    "eslint": "^6.4.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "mocha-lcov-reporter": "^1.3.0",
-    "nyc": "^14.1.1"
-  }
+    "name": "teamwork",
+    "version": "1.0.0",
+    "description": "TeamWork project for workmate collaboration",
+    "main": "index.js",
+    "scripts": {
+        "test": "npm run droptables && npm run createtables && cross-env NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --require babel-polyfill --require @babel/register server/v2/tests/*.spec.js --exit",
+        "createtables": "node --require babel-polyfill --require @babel/register server/v2/models/addTables",
+        "droptables": "node --require babel-polyfill --require @babel/register server/v2/models/deleteTables",
+        "start": "babel-node server/app",
+        "dev": "nodemon --exec babel-node server/app",
+        "coveralls": "npm test && nyc report --reporter=text-lcov | coveralls",
+        "build": "babel server -d dist",
+        "lint": "eslint server"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nigorjeanluc/Teamwork.git"
+    },
+    "author": "Igor Jean-Luc Ndiramiye",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Nigorjeanluc/Teamwork/issues"
+    },
+    "homepage": "https://github.com/Nigorjeanluc/Teamwork#readme",
+    "dependencies": {
+        "@babel/register": "^7.6.2",
+        "@babel/cli": "^7.6.0",
+        "@babel/core": "^7.6.0",
+        "@babel/node": "^7.6.1",
+        "@babel/preset-env": "^7.6.0",
+        "babel-polyfill": "^6.26.0",
+        "bcrypt": "^3.0.6",
+        "body-parser": "^1.19.0",
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "dotenv": "^8.1.0",
+        "express": "^4.17.1",
+        "joi": "^14.3.1",
+        "jsonwebtoken": "^8.5.1",
+        "make-runnable": "^1.3.6",
+        "mocha": "^6.2.0",
+        "pg": "^7.12.1",
+        "nodemon": "^1.19.2",
+        "supertest": "^4.0.2"
+    },
+    "devDependencies": {
+        "coveralls": "^3.0.6",
+        "cross-env": "^6.0.3",
+        "eslint": "^6.4.0",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "mocha-lcov-reporter": "^1.3.0",
+        "nyc": "^14.1.1"
+    }
 }

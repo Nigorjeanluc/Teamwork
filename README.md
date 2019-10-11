@@ -29,10 +29,12 @@ Teamwork project is an online web application that provides an easy way to commu
   * Node
   * Express
   * mocha
+  * Postgres
 
 # To Getting Started
 Starting application run the following npm command
-* `npm run server:start` for starting the server.
+* `npm start` for starting the server.
+* `npm run dev` for starting the development mode.
 
 # For Testing
 When you need to test this application and see the tests coverate rate:
@@ -40,13 +42,13 @@ When you need to test this application and see the tests coverate rate:
 
 # APIs
 
-* POST `/api/v1/auth/signup` signup on banka application.
-* POST `/api/v1/auth/signin` signin on banka application. 
+* POST `/api/v2/auth/signup` signup on banka application.
+* POST `/api/v2/auth/signin` signin on banka application. 
 
-* POST `/api/v1/articles` Create an article.
-* GET `/api/v1/feeds` Read all articles.
-* PATCH `/api/v1/articles/:id` Edit an article.
-* DELETE `/api/v1/articles/:id` Delete an article.
+* POST `/api/v2/articles` Create an article.
+* GET `/api/v2/feeds` Read all articles.
+* PATCH `/api/v2/articles/:id` Edit an article.
+* DELETE `/api/v2/articles/:id` Delete an article.
 
 * POST `/api/v1/articles/:id/comments` Create a comment for a specific article.
 
