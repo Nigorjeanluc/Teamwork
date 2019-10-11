@@ -39,7 +39,7 @@ class ArticleController {
           return res.status(200).json({
             status: 200,
             message: "Fetched article successfully",
-            data: { ...Object.values(result.rows[0]) }
+            data: { ...Object.values(result.rows) }
           });
         } else {
           res.status(404).json({
@@ -67,7 +67,7 @@ class ArticleController {
           return res.status(200).json({
             status: 200,
             message: "Fetched article successfully",
-            data: { ...Object.values(result.rows[0]) }
+            data: result.rows[0]
           });
         } else {
           res.status(404).json({
@@ -93,7 +93,6 @@ class ArticleController {
     const isStored = await pool.query(allqueries.getOneArticle, [id]);
 
     if (isStored.rows.length !== 0) {
-      console.log(isStored.rows[0]);
       if (authorId === isStored.rows[0].authorid) {
         await pool
           .query(allqueries.deleteArticle, [id])
@@ -169,7 +168,7 @@ class ArticleController {
     const isStored = await pool.query(allqueries.getOneArticle, [id]);
 
     if (isStored.rows.length !== 0) {
-      if (authorId === isStored.rows[0].id) {
+      if (isStored.rows[0].authorid === authorId) {
         await pool
           .query(allqueries.updateArticle, [
             id,
@@ -182,7 +181,7 @@ class ArticleController {
             return res.status(200).json({
               status: 200,
               message: "Article edited successfully",
-              data: { ...Object.values(result.rows[0]) }
+              data: result.rows[0]
             });
           })
           .catch(err => {

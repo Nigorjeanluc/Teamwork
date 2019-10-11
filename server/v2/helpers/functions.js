@@ -29,7 +29,7 @@ class func {
   }
 
   static toInteger(id) {
-    if (typeof id === "number") return parseInt(id, 10);
+    return parseInt(id, 10);
   }
   static jwtSign(id, email) {
     const done = jwt.sign(
