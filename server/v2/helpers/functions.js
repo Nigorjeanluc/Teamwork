@@ -28,7 +28,7 @@ class func {
     arr.length + 1;
   }
 
-  static toInteger(id) {
+static toInteger(id) {
     return parseInt(id, 10);
   }
   static jwtSign(id, email) {
