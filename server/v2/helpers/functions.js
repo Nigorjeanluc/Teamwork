@@ -1,60 +1,68 @@
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-import pool from '../models/dbConnect';
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+import pool from "../models/dbConnect";
 
 dotenv.config();
 
 class func {
-    static randomString (length) {
-        let result = '';
-        const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-        const charactersLength = characters.length;
-        for (let i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        return result;
+  static randomString(length) {
+    let result = "";
+    const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
+    return result;
+  }
 
-    static idFinder (items, id) {
-        items.find((item) => item.id === id);
-    }
+  static idFinder(items, id) {
+    items.find(item => item.id === id);
+  }
 
-    static emailFinder (items, email) {
-        items.find((item) => item.email === email);
-    }
+  static emailFinder(items, email) {
+    items.find(item => item.email === email);
+  }
 
-    static idIncrementor (arr) {
-        arr.length + 1;
-    }
+  static idIncrementor(arr) {
+    arr.length + 1;
+  }
 
-    static toInteger (id) {
-        return parseInt(id, 10);
+  static toInteger(id) {
+    if (typeof id === "number") {
+      return parseInt(id, 10);
+    } else {
+      return 12154545454545487857245787787887878;
     }
-    static jwtSign (id, email) {
-        const done = jwt.sign({
-            id,
-            email,
-        }, process.env.JWT_KEY, {
-            expiresIn: '1h',
-        });
+  }
+  static jwtSign(id, email) {
+    const done = jwt.sign(
+      {
+        id,
+        email
+      },
+      process.env.JWT_KEY,
+      {
+        expiresIn: "1h"
+      }
+    );
 
-        return done;
-    }
+    return done;
+  }
 
-    static hashPassword (password) {
-        return bcrypt.hashSync(password, 10)
-    }
+  static hashPassword(password) {
+    return bcrypt.hashSync(password, 10);
+  }
 
-    static comparePassword (password, matchPassword) {
-        return bcrypt.compareSync(password, matchPassword)
-    }
+  static comparePassword(password, matchPassword) {
+    return bcrypt.compareSync(password, matchPassword);
+  }
 
-    static async execQuery (query) {
-        (async () => {
-            await pool.query(query);
-          })().catch(error => process.stdout.write(`${error}\n`));
-    }
-};
+  static async execQuery(query) {
+    (async () => {
+      await pool.query(query);
+    })().catch(error => process.stdout.write(`${error}\n`));
+  }
+}
 
 export default func;
