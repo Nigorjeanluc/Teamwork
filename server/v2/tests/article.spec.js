@@ -54,7 +54,6 @@ const result = async() => {
     ]);
 }
 
-
 const token = jwt
     .sign({ id: 12, access: 'auth' }, process.env.JWT_KEY, {
         expiresIn: '1h'
