@@ -113,7 +113,7 @@ describe('POST /api/v2/articles', () => {
     });
 });
 
-describe(`GET /api/v2/articles/:id}`, () => {
+describe(`GET /api/v2/articles/:id`, () => {
     it('should return the targeted article', () => {
         chai
             .request(app)
