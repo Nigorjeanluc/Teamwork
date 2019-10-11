@@ -15,12 +15,6 @@ if (process.env.NODE_ENV == "test") {
   });
 }
 
-if (process.env.NODE_ENV == "pro") {
-  pool = new Pool({
-    connectionString: process.env.DATABASE_URL_PRO
-  });
-}
-
 pool.on("connect", () => process.stdout.write("Connected to database...\n"));
 
 export default pool;

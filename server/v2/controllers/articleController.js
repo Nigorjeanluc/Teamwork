@@ -12,7 +12,7 @@ class ArticleController {
           res.status(200).json({
             status: 200,
             message: "Retrieved all articles",
-            data: { ...Object.values(result.rows) }
+            data: result.rows
           });
         } else {
           res.status(404).json({
@@ -39,7 +39,7 @@ class ArticleController {
           return res.status(200).json({
             status: 200,
             message: "Fetched article successfully",
-            data: { ...Object.values(result.rows) }
+            data: result.rows
           });
         } else {
           res.status(404).json({
@@ -145,7 +145,7 @@ class ArticleController {
           return res.status(201).json({
             status: 201,
             message: "Article created successfully",
-            data: { ...Object.values(result.rows) }
+            data: result.rows
           });
         }
       })
