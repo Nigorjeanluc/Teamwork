@@ -11,16 +11,17 @@ var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
 
 var _dotenv = _interopRequireDefault(require("dotenv"));
 
+var _userModel = _interopRequireDefault(require("../models/userModel"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 _dotenv["default"].config();
 
-var users = [];
 var userController = {
   signUp: function signUp(req, res, next) {
     var user = {
-      id: users.length - 1,
-      createdOn: Date(Date.now).toString(),
+      id: _userModel["default"].length - 1,
+      createdOn: new Date().toString(),
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
@@ -38,7 +39,7 @@ var userController = {
 
         var user = {
           id: parseInt(req.body.id, 10),
-          createdOn: Date(Date.now).toString(),
+          createdOn: new Date().toString(),
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           email: req.body.email,
@@ -48,9 +49,10 @@ var userController = {
           address: req.body.address,
           password: hash
         };
-        var alreadyUser = users.find(function (user) {
+
+        var alreadyUser = _userModel["default"].find(function (user) {
           return user.email === req.body.email;
-        }) || users.find(function (user) {
+        }) || _userModel["default"].find(function (user) {
           return user.id === parseInt(req.body.id, 10);
         });
 
@@ -61,7 +63,7 @@ var userController = {
           });
         }
 
-        var done = users.push(user);
+        var done = _userModel["default"].push(user);
 
         if (done) {
           var token = _jsonwebtoken["default"].sign({
@@ -92,7 +94,8 @@ var userController = {
       email: req.body.email,
       password: req.body.password
     };
-    var alreadyUser = users.find(function (user) {
+
+    var alreadyUser = _userModel["default"].find(function (user) {
       return user.email === userAuth.email;
     });
 
