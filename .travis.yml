@@ -13,7 +13,7 @@ services:
 before_install:
   - psql -c 'CREATE DATABASE teamworkdb_test;' -U postgres
   - npm i
-  - npm i --save pg
+  - npm update
 script:
   - npm test
 after_success:
