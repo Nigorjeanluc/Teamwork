@@ -3,6 +3,8 @@ import chaiHTTP from "chai-http";
 import User from "../models/userClass";
 import app from "../../app";
 import func from "../helpers/functions";
+import pool from "../models/dbConnect";
+import allqueries from "../models/allqueries";
 
 const user = new User(
   "Jean Jaures",
@@ -66,6 +68,22 @@ describe("POST /api/v2/auth/signin", () => {
         expect(res.body.data).to.have.property("token");
       });
   });
+
+  before(async () => {
+    await pool.query(allqueries.insertEmployee, [
+      user.firstName,
+      user.lastName,
+      `${func.randomString(6)}@gmail.com`,
+      user.gender,
+      user.jobRole,
+      user.department,
+      user.address,
+      user.isAdmin,
+      func.hashPassword("123456789"),
+      user.createdOn
+    ]);
+  });
+
   it("should not sign in user with invalid credentials but stored in the db", () => {
     chai
       .request(app)
