@@ -7,7 +7,11 @@ let pool = {}
 
 if (process.env.NODE_ENV == 'test') {
     pool = new Pool({
-      connectionString: process.env.DATABASE_URL_TEST,
+        connectionString: process.env.DATABASE_URL_TEST,
+    });
+} else if (process.env.NODE_ENV == 'pro') {
+    pool = new Pool({
+        connectionString: process.env.DATABASE_URL_PRO,
     });
 } else {
     pool = new Pool({

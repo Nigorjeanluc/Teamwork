@@ -4,14 +4,13 @@ import Article from '../models/articleClass';
 const articleValidation = {
     postValidator: (req, res, next) => {
         const Schema = Joi.object().keys({
-            id: Joi.number().integer().required(),
             createdOn: Joi.date().required(),
+            updatedOn: Joi.date().required(),
             title: Joi.string().min(5).max(100).label('Title').required(),
             article: Joi.string().min(5).max(1000).label('Article').required(),
             authorId: Joi.number().allow().label('Author_id'),
             category: Joi.string().min(2).max(20).alphanum().label('Catedory').trim().required(),
             isInappropiate: Joi.boolean().label('Appropriate').required(),
-            comments: Joi.required(),
         });
 
         const article = new Article(req.body.title, req.body.article, req.body.category, req.userData.id);

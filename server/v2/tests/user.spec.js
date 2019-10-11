@@ -1,8 +1,8 @@
 import chai, { expect } from "chai";
 import chaiHTTP from "chai-http";
-import User from "../v2/models/userClass";
-import app from "../app";
-import func from "../v2/helpers/functions";
+import User from "../models/userClass";
+import app from "../../app";
+import func from "../helpers/functions";
 
 const user = new User(
     "Jean Jaures",
@@ -36,6 +36,8 @@ describe("POST /api/v1/auth/signup", () => {
             .send(invalidUser)
             .end((err, res) => {
                 expect(res.status).to.equals(422);
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
                 expect(res.body).to.be.an("object");
                 expect(res.body.error).to.be.a("string");
             });
@@ -50,6 +52,9 @@ describe("POST /api/v1/auth/signup", () => {
                 expect(res.body).to.be.an("object");
                 expect(res.body.data).to.be.an("object");
                 expect(res.body.data.token).to.be.a("string");
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
+                expect(res.body.data).to.have.property('token');
             });
     });
 });
@@ -65,6 +70,9 @@ describe("POST /api/v1/auth/signin", () => {
                 expect(res.body).to.be.an("object");
                 expect(res.body.data).to.be.an("object");
                 expect(res.body.data.token).to.be.a("string");
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
+                expect(res.body.data).to.have.property('token');
             });
     });
     it("should not sign in user with invalid credentials but stored in the db", () => {
@@ -76,6 +84,8 @@ describe("POST /api/v1/auth/signin", () => {
                 expect(res.status).to.be.equals(401);
                 expect(res.body).to.be.an("object");
                 expect(res.body.error).to.be.a("string");
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
             });
     });
     it("should not sign in user with valid but not stored in the db", () => {
@@ -87,6 +97,8 @@ describe("POST /api/v1/auth/signin", () => {
                 expect(res.status).to.equals(422);
                 expect(res.body).to.be.an("object");
                 expect(res.body.error).to.be.a("string");
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
             });
     });
 });

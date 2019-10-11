@@ -24,6 +24,7 @@ const createArticlesTable = `
           isInappropriate VARCHAR(255) NOT NULL,
           authorId INT NOT NULL,
           createdOn timestamp without time zone,
+          updatedOn timestamp without time zone,
           FOREIGN KEY (authorId) REFERENCES employees(id) ON DELETE CASCADE
 )`;
 
@@ -33,6 +34,7 @@ const createCommentsTable = `
           id SERIAL PRIMARY KEY,
           comment VARCHAR(255) NOT NULL,
           isInappropriate VARCHAR(255) NOT NULL,
+          authorId INT NOT NULL,
           articleId INT NOT NULL,
           createdOn timestamp without time zone,
           FOREIGN KEY (articleId) REFERENCES articles(id) ON DELETE CASCADE
@@ -48,19 +50,47 @@ const insertEmployee = `
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
     RETURNING id, firstName, lastName, email, gender, jobRole, department, address, isAdmin, password, createdOn`;
 
+const insertArticle = `
+    INSERT INTO 
+        articles (title, article, category, isInappropriate, authorId, createdOn, updatedOn)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
+    RETURNING *`;
+
+const insertComment = `
+    INSERT INTO 
+        comments (comment, isInappropriate, authorId, articleId, createdOn)
+    VALUES ($1, $2, $3, $4, $5)
+    RETURNING *`;
+
 const getAllEmployees = `SELECT * FROM employees`;
 
+const getOneArticle = `SELECT * FROM articles WHERE id = $1`;
+
+const getMyArticles = `SELECT * FROM articles WHERE authorId = $1 ORDER BY id DESC`;
+
 const getAllArticles = `SELECT * FROM articles ORDER BY id DESC`;
+
+const updateArticle = `UPDATE articles 
+                        SET title = $2, article = $3, category = $4, updatedOn = $5  WHERE id = $1 
+                        RETURNING * `;
+
+const deleteArticle = `DELETE FROM articles WHERE id = $1`;
 
 const getAnEmployee = `SELECT * FROM employees WHERE email = $1`;
 
 export default {
-  createUsersTable,
-  createArticlesTable,
-  createCommentsTable,
-  deleteAllTables,
-  insertEmployee,
-  getAllEmployees,
-  getAllArticles,
-  getAnEmployee
+    createUsersTable,
+    createArticlesTable,
+    createCommentsTable,
+    deleteAllTables,
+    insertEmployee,
+    insertArticle,
+    insertComment,
+    updateArticle,
+    deleteArticle,
+    getAllEmployees,
+    getAllArticles,
+    getMyArticles,
+    getOneArticle,
+    getAnEmployee
 };
