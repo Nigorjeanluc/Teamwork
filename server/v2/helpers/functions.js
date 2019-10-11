@@ -29,11 +29,7 @@ class func {
   }
 
   static toInteger(id) {
-    if (typeof id === "number") {
-      return parseInt(id, 10);
-    } else {
-      return 12154545454545487857245787787887878;
-    }
+    if (typeof id === "number") return parseInt(id, 10);
   }
   static jwtSign(id, email) {
     const done = jwt.sign(
