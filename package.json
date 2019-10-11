@@ -24,13 +24,14 @@
     },
     "homepage": "https://github.com/Nigorjeanluc/Teamwork#readme",
     "dependencies": {
-        "@babel/register": "^7.6.2",
         "@babel/cli": "^7.6.0",
         "@babel/core": "^7.6.0",
         "@babel/node": "^7.6.1",
         "@babel/preset-env": "^7.6.0",
+        "@babel/register": "^7.6.2",
         "babel-polyfill": "^6.26.0",
         "nodemon": "^1.19.2",
+        "pg": "^7.12.1",
         "supertest": "^4.0.2"
     },
     "devDependencies": {
