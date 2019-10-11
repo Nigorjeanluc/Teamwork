@@ -7,7 +7,7 @@
     "test": "npm run droptables && npm run createtables && cross-env NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --require babel-polyfill --require @babel/register server/v2/tests/user.spec.js --exit",
     "createtables": "node --require babel-polyfill --require @babel/register server/v2/models/addTables",
     "droptables": "node --require babel-polyfill --require @babel/register server/v2/models/deleteTables",
-    "start": "node ./dist/app",
+    "start": "node --exec babel-node server/app",
     "dev": "nodemon --exec babel-node server/app",
     "coveralls": "npm test && nyc report --reporter=text-lcov | coveralls",
     "build": "babel server -d dist",
