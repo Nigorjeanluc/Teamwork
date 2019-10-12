@@ -37,6 +37,7 @@ class UserController {
                     token,
                 }
             });
+            // eslint-disable-next-line arrow-parens
         }).catch(err => {
             console.log('query error', err.message, err.stack);
             const message = "Query error";
@@ -47,6 +48,7 @@ class UserController {
             });
         });
     }
+
     static async signIn(req, res) {
         const userAuth = {
             email: req.body.email,
@@ -67,6 +69,7 @@ class UserController {
                             token,
                         }
                     });
+                    // eslint-disable-next-line no-else-return
                 } else {
                     return res.status(401).json({
                         status: 401,
