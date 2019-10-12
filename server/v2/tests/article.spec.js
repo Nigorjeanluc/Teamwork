@@ -6,8 +6,6 @@ import dotenv from 'dotenv';
 import app from '../../app';
 import func from '../helpers/functions';
 import Article from '../models/articleClass';
-import pool from '../models/dbConnect';
-import allqueries from '../models/allqueries';
 
 dotenv.config();
 
@@ -39,25 +37,20 @@ const invalidArticle = new Article(
     1200
 );
 
-const result = async() => {
-    await pool.query(allqueries.insertEmployee, [
-        user.firstName,
-        user.lastName,
-        user.email,
-        user.gender,
-        user.jobRole,
-        user.department,
-        user.address,
-        user.isAdmin,
-        func.hashPassword(user.password),
-        user.createdOn
-    ]);
-}
-
-const token = jwt
-    .sign({ id: 12, access: 'auth' }, process.env.JWT_KEY, {
-        expiresIn: '1h'
-    });
+// const result = async() => {
+//     await pool.query(allqueries.insertEmployee, [
+//         user.firstName,
+//         user.lastName,
+//         user.email,
+//         user.gender,
+//         user.jobRole,
+//         user.department,
+//         user.address,
+//         user.isAdmin,
+//         func.hashPassword(user.password),
+//         user.createdOn
+//     ]);
+// };
 
 chai.use(chaiHTTP);
 
@@ -73,14 +66,18 @@ describe('GET /api/v1/feeds', () => {
 });
 
 describe('POST /api/v2/articles', () => {
+
     it('should not post an invalid article', () => {
+        const token = jwt.sign({ id: 12, access: 'auth' }, process.env.JWT_KEY, {
+            expiresIn: '1h'
+        });
         chai
             .request(app)
             .post('/api/v2/articles')
             .send(invalidArticle)
             .set('Authorization', `Bear ${token}`)
             .end((err, res) => {
-                expect(res.status).to.equals(422);
+                expect(res.status).to.equal(422);
                 expect(res.body).to.be.an('object');
                 expect(res.body.error).to.be.a('string');
             });
@@ -99,6 +96,9 @@ describe('POST /api/v2/articles', () => {
     });
 
     it('should post new article', () => {
+        const token = jwt.sign({ id: 12, access: 'auth' }, process.env.JWT_KEY, {
+            expiresIn: '1h'
+        });
         chai
             .request(app)
             .post('/api/v2/articles')
@@ -114,6 +114,9 @@ describe('POST /api/v2/articles', () => {
 
 describe(`GET /api/v2/articles/:id`, () => {
     it('should return the targeted article', () => {
+        const token = jwt.sign({ id: 12, access: 'auth' }, process.env.JWT_KEY, {
+            expiresIn: '1h'
+        });
         chai
             .request(app)
             .get(`/api/v2/articles/1`)
@@ -126,6 +129,9 @@ describe(`GET /api/v2/articles/:id`, () => {
 
 describe(`GET /api/v2/articles/:id/comments`, () => {
     it(`POST /api/v2/articles/:id/comments`, () => {
+        const token = jwt.sign({ id: 12, access: 'auth' }, process.env.JWT_KEY, {
+            expiresIn: '1h'
+        });
         chai
             .request(app)
             .post(`/api/v2/articles/1/comments`)
@@ -142,6 +148,9 @@ describe(`GET /api/v2/articles/:id/comments`, () => {
     });
 
     it(`PATCH /api/v2/articles/1`, () => {
+        const token = jwt.sign({ id: 12, access: 'auth' }, process.env.JWT_KEY, {
+            expiresIn: '1h'
+        });
         chai
             .request(app)
             .patch(`/api/v2/articles/1`)
@@ -153,6 +162,9 @@ describe(`GET /api/v2/articles/:id/comments`, () => {
     });
 
     it(`DELETE /api/v2/articles/1`, () => {
+        const token = jwt.sign({ id: 12, access: 'auth' }, process.env.JWT_KEY, {
+            expiresIn: '1h'
+        });
         chai
             .request(app)
             .delete(`/api/v2/articles/1`)
